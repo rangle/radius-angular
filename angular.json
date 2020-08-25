@@ -120,6 +120,38 @@
           }
         }
       }
+    },
+    "ds": {
+      "projectType": "library",
+      "root": "libs/ds",
+      "sourceRoot": "libs/ds/src",
+      "prefix": "radius-angular",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ds/tsconfig.lib.json",
+              "libs/ds/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ds/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ds/jest.config.js",
+            "tsConfig": "libs/ds/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ds/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {
