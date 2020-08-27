@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'radius-angular-hello',
+  selector: 'ds-hello',
   templateUrl: './hello.component.html',
-  styleUrls: ['./hello.component.scss']
+  styleUrls: ['./hello.component.scss'],
 })
 export class HelloComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

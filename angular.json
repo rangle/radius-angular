@@ -10,7 +10,7 @@
       },
       "root": "apps/demo",
       "sourceRoot": "apps/demo/src",
-      "prefix": "radius-angular",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -125,7 +125,7 @@
       "projectType": "library",
       "root": "libs/ds",
       "sourceRoot": "libs/ds/src",
-      "prefix": "radius-angular",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

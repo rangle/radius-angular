@@ -29,7 +29,6 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/angular": "10.1.0",
     "@angular/animations": "^10.0.0",
     "@angular/common": "^10.0.0",
     "@angular/compiler": "^10.0.0",
@@ -38,7 +37,10 @@
     "@angular/platform-browser": "^10.0.0",
     "@angular/platform-browser-dynamic": "^10.0.0",
     "@angular/router": "^10.0.0",
+    "@nrwl/angular": "10.1.0",
+    "polished": "^3.6.5",
     "rxjs": "~6.5.5",
+    "styled-system": "^5.1.5",
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
