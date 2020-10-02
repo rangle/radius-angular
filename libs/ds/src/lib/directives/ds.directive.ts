@@ -29,6 +29,8 @@ import { THEME_OPTIONS, ThemeOptions } from '../types';
     [paddingLeft], [pl],
     [paddingX], [px],
     [paddingY], [py],
+    [color], [c],
+    [border], [b],
   `,
 })
 export class DSDirective implements OnInit {
@@ -44,23 +46,45 @@ export class DSDirective implements OnInit {
   @Input() pt: string;
   @Input() paddingTop: string;
 
+  @Input() pb: string;
+  @Input() paddingBottom: string;
+
+  @Input() pl: string;
+  @Input() paddingLeft: string;
+
+  @Input() pr: string;
+  @Input() paddingRight: string;
+
+  @Input() c: string;
+  @Input() color: string;
+
+  @Input() b: string;
+  @Input() border: string;
+
   constructor(
     private el: ElementRef,
     @Inject(THEME_OPTIONS) private options: ThemeOptions
   ) {}
 
   ngOnInit() {
-    console.log(this.options);
     const styles = {
       ...color({
         bg: this.bg || this.backgroundColor,
+        color: this.c || this.color,
+      }),
+      ...border({
+        border: this.b || this.border
       }),
       ...space({
         m: this.m || this.margin,
         p: this.p || this.padding,
         pt: this.pt || this.paddingTop,
+        pb: this.pb || this.paddingBottom,
+        pl: this.pl || this.paddingLeft,
+        pr: this.pr || this.paddingRight,
       }),
     };
+    console.log(styles);
 
     const styleProperties = Object.keys(styles);
     styleProperties.forEach((property) => {

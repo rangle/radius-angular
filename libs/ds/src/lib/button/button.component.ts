@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'ds-button',
@@ -7,4 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() variant: string;
+  @Input() title: string;
+  @Input() isLoading = false;
 }

@@ -7,11 +7,17 @@ import { ButtonComponent } from './button/button.component';
 import { DSDirective } from './directives/ds.directive';
 import { ThemeOptions, THEME_OPTIONS } from './types';
 import { themes } from './types/theme';
+import { DSButtonDirective } from './directives/ds-button.directive';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [HelloComponent, ButtonComponent, DSDirective],
-  exports: [HelloComponent, ButtonComponent, DSDirective],
+  declarations: [
+    HelloComponent,
+    ButtonComponent,
+    DSDirective,
+    DSButtonDirective,
+  ],
+  exports: [HelloComponent, ButtonComponent, DSDirective, DSButtonDirective],
 })
 export class DsModule {
   static withOptions(
