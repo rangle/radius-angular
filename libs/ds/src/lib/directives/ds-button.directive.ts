@@ -55,6 +55,7 @@ export class DSButtonDirective implements OnInit {
       } else if (value === 'text.secondary') {
         value = this.options.themes.dark['colors']['text']['secondary'];
       }
+      console.log(property, value);
 
       this.el.nativeElement.style[property] = value;
     });
