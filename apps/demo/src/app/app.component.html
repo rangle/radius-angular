@@ -14,7 +14,7 @@
 </ds-button> -->
 
 <button m="10" bg="red">Button</button>
-
-<p dsButton buttonType="primary">primary me!</p>
-<hr />
-<p dsButton buttonType="secondary">secondary me!</p>
+<hr>
+<button #button1="dsButton" dsButton variant="transparent" (click)="button1.variant = 'primary'">primary me!</button>
+<hr>
+<button #button2="dsButton" dsButton variant="transparent" (click)="button2.variant = 'secondary'">secondary me!</button>

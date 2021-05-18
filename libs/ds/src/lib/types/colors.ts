@@ -16,6 +16,7 @@ export interface UIColors {
   error: string;
   success: string;
 }
+
 export interface BGColors {
   primary: string;
   secondary: string;
@@ -76,7 +77,7 @@ export const textColors: TextColors = {
 };
 
 export const highlightColors: HighlightColors = {
-  primaryHighlight: darken(0.1, '#012E86'),
-  primaryExtraHighlight: darken(0.2, '#012E86'),
-  bgHighlight: darken(0.1, '#FFFFFF'),
+  primaryHighlight: darken(0.1, brandColors.primary),
+  primaryExtraHighlight: darken(0.2, brandColors.primary),
+  bgHighlight: darken(0.1, bgColors.primary),
 };

@@ -6,7 +6,7 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() variant: string;
-  @Input() title: string;
+  @Input() variant!: string;
+  @Input() title!: string;
   @Input() isLoading = false;
 }

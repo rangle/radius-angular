@@ -34,32 +34,32 @@ import { THEME_OPTIONS, ThemeOptions } from '../types';
   `,
 })
 export class DSDirective implements OnInit {
-  @Input() bg: string;
-  @Input() backgroundColor: string;
+  @Input() bg!: string;
+  @Input() backgroundColor!: string;
 
-  @Input() m: string;
-  @Input() margin: string;
+  @Input() m!: string;
+  @Input() margin!: string;
 
-  @Input() p: string;
-  @Input() padding: string;
+  @Input() p!: string;
+  @Input() padding!: string;
 
-  @Input() pt: string;
-  @Input() paddingTop: string;
+  @Input() pt!: string;
+  @Input() paddingTop!: string;
 
-  @Input() pb: string;
-  @Input() paddingBottom: string;
+  @Input() pb!: string;
+  @Input() paddingBottom!: string;
 
-  @Input() pl: string;
-  @Input() paddingLeft: string;
+  @Input() pl!: string;
+  @Input() paddingLeft!: string;
 
-  @Input() pr: string;
-  @Input() paddingRight: string;
+  @Input() pr!: string;
+  @Input() paddingRight!: string;
 
-  @Input() c: string;
-  @Input() color: string;
+  @Input() c!: string;
+  @Input() color!: string;
 
-  @Input() b: string;
-  @Input() border: string;
+  @Input() b!: string;
+  @Input() border!: string;
 
   constructor(
     private el: ElementRef,
