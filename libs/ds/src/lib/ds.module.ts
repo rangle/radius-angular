@@ -23,6 +23,23 @@ export class DsModule {
   static withOptions(
     options: ThemeOptions = { themes }
   ): ModuleWithProviders<DsModule> {
+
+    options.themes.light.sizes.forEach((size, index) => {
+      const scale = `--ds-sz${index}`;
+      document.documentElement.style.setProperty(
+        scale,
+        size.toString() + 'px'
+      );
+    });
+
+    options.themes.light.fontSizes.forEach((size, index) => {
+      const scale = `--ds-fs${index}`;
+      document.documentElement.style.setProperty(
+        scale,
+        size
+      );
+    });
+
     return {
       ngModule: DsModule,
       providers: [{ provide: THEME_OPTIONS, useValue: options }],
