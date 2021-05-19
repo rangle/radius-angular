@@ -1,0 +1,29 @@
+.ds-button--primary {
+  background: var(--primary-default);
+  color: var(--primary-text);
+}
+
+.ds-button--primary:hover {
+  background: var(--secondary-default);
+  color: var(--secondary-text);
+}
+
+.ds-button--secondary {
+  background: var(--secondary-default);
+  color: var(--secondary-text);
+}
+
+.ds-button--large {
+  font-size: var(--ds-fs0);
+  padding: var(--ds-sz0);
+}
+
+.ds-button--medium {
+  font-size: var(--ds-fs1);
+  padding: var(--ds-sz1);
+}
+
+.ds-button--small {
+  font-size: var(--ds-fs2);
+  padding: var(--ds-sz2);
+}
