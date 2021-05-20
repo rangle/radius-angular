@@ -100,3 +100,16 @@ export const themes: Themes = {
     },
   },
 };
+
+export type ThemeProperties = { [area in keyof Theme]?: [string, string?] };
+
+export const themeProperties: ThemeProperties = {
+  breakpoints: ['bp'],
+  colors: ['color'],
+  fonts: ['ff'],
+  fontSizes: ['fs'],
+  lineHeights: ['lh'],
+  letterSpacings: ['ls'],
+  sizes: ['sz', 'px']
+};
+

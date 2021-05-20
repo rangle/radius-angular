@@ -1,16 +1,16 @@
 .ds-button--primary {
-  background: var(--primary-default);
-  color: var(--primary-text);
+  background: var(--ds-color-brand-primary);
+  color: var(--ds-color-text-primary);
 }
 
 .ds-button--primary:hover {
-  background: var(--secondary-default);
-  color: var(--secondary-text);
+  background: var(--ds-color-ui-primary);
+  color: var(--ds-color-text-primary);
 }
 
 .ds-button--secondary {
-  background: var(--secondary-default);
-  color: var(--secondary-text);
+  background: var(--ds-color-brand-secondary);
+  color: var(--ds-color-text-secondary);
 }
 
 .ds-button--large {

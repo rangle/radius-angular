@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { ThemeService } from '@radius-angular/ds';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +10,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'demo';
 
+  constructor (private _themeService: ThemeService) {
+  }
+
   onClick() {
-    console.log('test');
+    this._themeService.setTheme('dark');
   }
 }
