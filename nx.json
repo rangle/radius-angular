@@ -1,8 +1,4 @@
 {
-  "npmScope": "radius-angular",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -13,11 +9,21 @@
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "radius-angular",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
       }
     }
   },
@@ -31,6 +37,10 @@
     },
     "ds": {
       "tags": []
+    },
+    "ds-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ds"]
     }
   }
 }

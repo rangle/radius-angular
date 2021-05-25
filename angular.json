@@ -159,11 +159,68 @@
             "passWithNoTests": true,
             "setupFile": "libs/ds/src/test-setup.ts"
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ds/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ds",
+            "config": {
+              "configFolder": "libs/ds/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       },
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
+        }
+      }
+    },
+    "ds-e2e": {
+      "root": "apps/ds-e2e",
+      "sourceRoot": "apps/ds-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ds-e2e/cypress.json",
+            "tsConfig": "apps/ds-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ds:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "ds:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ds-e2e/**/*.{js,ts}"]
+          }
         }
       }
     }
