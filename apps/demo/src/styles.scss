@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  color-scheme: light dark;
+}
+
+.red {
+  color: red;
+}
+
+.ds-loading {
+  color: transparent !important;
+  position: relative;
+
+  &::before {
+    align-items: center;
+    animation: spin 3s linear infinite;
+    // color: white;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.25em' height='1.25em' viewBox='0 0 24 24' class='red' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-labelledby='icon-24'%3E%3Ctitle id='icon-24'%3ELoading…%3C/title%3E%3Cpath d='M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83'%3E%3C/path%3E%3C/svg%3E");
+    display: flex;
+    font-size: 1.25em;
+    inset: 0px;
+    justify-content: center;
+    line-height: 1;
+    position: absolute;
+
+    // left: 0;
+    // top: 0;
+    // height: 100%;
+    // width: 100%;
+    // border: 16px solid #f3f3f3;
+    // border-top: 16px solid #3498db;
+    // border-radius: 50%;
+    // width: 120px;
+    // height: 120px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

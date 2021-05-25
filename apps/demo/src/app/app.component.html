@@ -22,15 +22,22 @@
 <hr>
 <button ds-button (click)="onClick()">Primary Medium</button>
 <hr>
+<button ds-button isLoading>Primary Medium</button>
+<hr>
+<button ds-button width="200px">Fixed Width</button>
+<hr>
 <button ds-button="small">Primary Small</button>
 <hr>
 <button ds-button="large" disabled>Primary Large Disabled</button>
 <hr>
-<button ds-button="secondary">Secondary Medium</button>
+<button ds-button="secondary">Secondary Medium<ds-icon type="place"></ds-icon></button>
 <hr>
-<button ds-button="secondary small">Secondary Small</button>
+<button ds-button="secondary small"><ds-icon type="info"></ds-icon>Secondary Small</button>
 <hr>
 <button ds-button="secondary large" disabled>Secondary Large Disabled</button>
 <hr>
+<a ds-button="secondary large" href="https://www.google.com" target="_blank" width="200px"><ds-icon type="error"></ds-icon>Secondary Large Link - Fixed Width<ds-icon type="visibility"></ds-icon></a>
+<hr>
+<a ds-button="primary medium" disabled href="https://www.google.com" target="_blank">Primary Medium Disabled Link<div class="ds-icon" style="height: 20px;">:)</div></a>
 <!-- <hr>
 <p dsButton buttonType="secondary">secondary me!</p> -->

@@ -15,8 +15,13 @@ export type ButtonSize = typeof BUTTON_SIZES[number];
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: `button[${selector}]`,
-  templateUrl: './button.component.html',
+  selector: `a[${selector}], button[${selector}]`,
+  exportAs: 'msButton',
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    '(click)': '_haltDisabledEvents($event)'
+  },
+  template: `<span class="${selector}-wrapper"><ng-content></ng-content></span>`,
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -27,7 +32,10 @@ export class ButtonComponent {
   //eslint-disable-next-line @angular-eslint/no-input-rename
   @Input(selector)
   @HostBinding('class')
-  public set classNames(value: string) {
+  get classNames(): string {
+    return `${selector} ${selector}--${this.variant} ${selector}--${this.size}`;
+  }
+  set classNames(value: string) {
     if (this._classNames === value) {
       return;
     }
@@ -38,8 +46,20 @@ export class ButtonComponent {
 
     this.size = BUTTON_SIZES.find(size => this._classNames.includes(size)) || 'medium';
   }
-  public get classNames(): string {
-    return `${selector} ${selector}--${this.variant} ${selector}--${this.size}`;
-  }
   private _classNames!: string;
+
+  @Input()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  get disabled(): any { return this._disabled; }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  set disabled(value: any) { this._disabled = value != null && `${value}` !== 'false'; }
+  private _disabled = false;
+
+  _haltDisabledEvents(event: Event) {
+    // A disabled button shouldn't apply any actions
+    if (this.disabled) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+  }
 }

@@ -14,6 +14,6 @@ export class AppComponent {
   }
 
   onClick() {
-    this._themeService.setTheme('dark');
+    // this._themeService.setTheme('dark');
   }
 }

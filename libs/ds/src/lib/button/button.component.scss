@@ -3,104 +3,108 @@
   border-style: solid;
   border-radius: 0;
   border-width: 2px;
+  cursor: pointer;
   font-family: var(--ds-ff-body);
   font-size: var(--ds-fs2);
   font-weight: var(--ds-fw-regular);
+  display: inline-block;
   line-height: var(--ds-lh-copy);
-  position: relative;
-  // padding: 3,
-  // ml: 0,
-  // mr: 0,
-  // mb: 0,
+  text-align: center;
+  text-decoration: none;
+  // position: relative;
+  vertical-align: baseline;
 
-  &--primary {
-    background-color: var(--ds-color-brand-primary);
-    border-color: transparent;
-    color: var(--ds-color-text-inverse);
+  &[disabled] {
+    cursor: default;
+  }
 
-    svg {
+  &.ds-button {
+    &--primary {
+      background-color: var(--ds-color-brand-primary);
+      border-color: transparent;
       color: var(--ds-color-text-inverse);
+
+      &:hover {
+        background-color: var(--ds-color-highlights-primaryHighlight);
+      }
+
+      &:active,
+      &:focus {
+        background-color: var(--ds-color-highlights-primaryExtraHighlight);
+      }
+
+      &[disabled] {
+        background-color: var(--ds-color-ui-disabled);
+        border-color: var(--ds-color-ui-disabled);
+        color: var(--ds-color-text-disabled);
+      }
     }
 
-    &:hover {
-      background-color: var(--ds-color-highlights-primaryHighlight);
-    }
-
-    &:active,
-    &:focus {
-      background-color: var(--ds-color-highlights-primaryExtraHighlight);
-    }
-
-    &:disabled {
-      background-color: var(--ds-color-ui-disabled);
-      border-color: var(--ds-color-ui-disabled);
-      color: var(--ds-color-text-disabled);
-    }
-  }
-
-  &--secondary {
-    background-color: var(--ds-color-bg-primary);
-    border-color: var(--ds-color-brand-primary);
-    color: var(--ds-color-brand-primary);
-
-    svg {
-      color: var(--ds-color-brand-primary);
-    }
-
-    &:hover {
-      border-color: var(--ds-color-highlights-primaryHighlight);
-    }
-
-    &:active,
-    &:focus {
-      border-color: var(--ds-color-highlights-primaryExtraHighlight);
-    }
-
-    &:disabled {
+    &--secondary {
       background-color: var(--ds-color-bg-primary);
-      border-color: var(--ds-color-ui-disabled);
-      color: var(--ds-color-text-disabled);
-    }
-  }
-
-  &--transparent {
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--ds-color-brand-primary);
-
-    svg {
+      border-color: var(--ds-color-brand-primary);
       color: var(--ds-color-brand-primary);
+
+      &:hover {
+        border-color: var(--ds-color-highlights-primaryHighlight);
+      }
+
+      &:active,
+      &:focus {
+        border-color: var(--ds-color-highlights-primaryExtraHighlight);
+      }
+
+      &[disabled] {
+        background-color: var(--ds-color-bg-primary);
+        border-color: var(--ds-color-ui-disabled);
+        color: var(--ds-color-text-disabled);
+      }
     }
 
-    &:hover {
-      background-color: var(--ds-color-highlights-bgHighlight);
+    &--transparent {
+      background-color: transparent;
+      border-color: transparent;
+      color: var(--ds-color-brand-primary);
+
+      &:hover {
+        background-color: var(--ds-color-highlights-bgHighlight);
+      }
+
+      &:active,
+      &:focus {
+        background-color: var(--ds-color-highlights-bgHighlight);
+      }
+
+      &[disabled] {
+        background-color: var(--ds-color-ui-primary);
+        border-color: var(--ds-color-ui-disabled);
+        color: var(--ds-color-text-disabled);
+      }
     }
 
-    &:active,
-    &:focus {
-      background-color: var(--ds-color-highlights-bgHighlight);
+    &--small {
+      font-size: var(--ds-fs0);
+      padding: var(--ds-sz0);
     }
 
-    &:disabled {
-      background-color: var(--ds-color-ui-primary);
-      border-color: var(--ds-color-ui-disabled);
-      color: var(--ds-color-text-disabled);
+    &--medium {
+      font-size: var(--ds-fs1);
+      padding: var(--ds-sz1);
+    }
+
+    &--large {
+      font-size: var(--ds-fs2);
+      padding: var(--ds-sz2);
     }
   }
 
-  &--small {
-    font-size: var(--ds-fs0);
-    padding: var(--ds-sz0);
-  }
-
-  &--medium {
-    font-size: var(--ds-fs1);
-    padding: var(--ds-sz1);
-  }
-
-  &--large {
-    font-size: var(--ds-fs2);
-    padding: var(--ds-sz2);
+  .ds-button-wrapper {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: row;
+    gap: var(--ds-sz0);
+    justify-content: center;
+    width: 100%;
   }
 }
 
