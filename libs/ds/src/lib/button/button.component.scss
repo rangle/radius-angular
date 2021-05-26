@@ -14,7 +14,7 @@
   // position: relative;
   vertical-align: baseline;
 
-  &[disabled] {
+  &--disabled {
     cursor: default;
   }
 
@@ -33,7 +33,7 @@
         background-color: var(--ds-color-highlights-primaryExtraHighlight);
       }
 
-      &[disabled] {
+      &.ds-button--disabled {
         background-color: var(--ds-color-ui-disabled);
         border-color: var(--ds-color-ui-disabled);
         color: var(--ds-color-text-disabled);
@@ -54,7 +54,7 @@
         border-color: var(--ds-color-highlights-primaryExtraHighlight);
       }
 
-      &[disabled] {
+      &.ds-button--disabled {
         background-color: var(--ds-color-bg-primary);
         border-color: var(--ds-color-ui-disabled);
         color: var(--ds-color-text-disabled);
@@ -75,7 +75,7 @@
         background-color: var(--ds-color-highlights-bgHighlight);
       }
 
-      &[disabled] {
+      &.ds-button--disabled {
         background-color: var(--ds-color-ui-primary);
         border-color: var(--ds-color-ui-disabled);
         color: var(--ds-color-text-disabled);

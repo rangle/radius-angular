@@ -7,10 +7,10 @@ import {
 
 const selector = 'ds-button';
 
-const BUTTON_VARIANTS = ['primary', 'secondary', 'transparent'] as const;
+export const BUTTON_VARIANTS = ['primary', 'secondary', 'transparent'] as const;
 export type ButtonVariant = typeof BUTTON_VARIANTS[number];
 
-const BUTTON_SIZES = ['small', 'medium', 'large'] as const;
+export const BUTTON_SIZES = ['small', 'medium', 'large'] as const;
 export type ButtonSize = typeof BUTTON_SIZES[number];
 
 @Component({
@@ -49,6 +49,7 @@ export class ButtonComponent {
   private _classNames!: string;
 
   @Input()
+  @HostBinding(`class.${selector}--disabled`)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get disabled(): any { return this._disabled; }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

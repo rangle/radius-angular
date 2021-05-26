@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
 
 const selector = 'ds-icon';
 
-const ICON_TYPES = [
-  'chckCircle',
-  'checkboxBln',
+export const ICON_TYPES = [
+  'checkCircle',
+  'checkboxBlank',
   'checkboxChecked',
   'checkboxIndeterminate',
   'close',
