@@ -1,12 +1,12 @@
-import { moduleMetadata, Meta, Story } from '@storybook/angular';
+import { moduleMetadata, Meta } from '@storybook/angular';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import { DsModule } from '../ds.module';
-import { ButtonComponent, BUTTON_SIZES, BUTTON_VARIANTS } from './button.component';
+import { DsButtonComponent, BUTTON_SIZES, BUTTON_VARIANTS } from './button.component';
 
 export default {
   title: 'Components/Button',
-  component: ButtonComponent,
+  component: DsButtonComponent,
   decorators: [
     moduleMetadata({
       imports: [DsModule.withOptions()]

@@ -25,7 +25,7 @@ export type ButtonSize = typeof BUTTON_SIZES[number];
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ButtonComponent {
+export class DsButtonComponent {
   public variant: ButtonVariant = 'primary';
   public size: ButtonSize = 'medium';
 

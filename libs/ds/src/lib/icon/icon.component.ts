@@ -27,7 +27,7 @@ export type IconType = typeof ICON_TYPES[number];
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IconComponent {
+export class DsIconComponent {
   @Input() type!: IconType;
 
   @HostBinding('class')

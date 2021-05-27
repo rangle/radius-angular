@@ -1,11 +1,11 @@
 import { Meta } from '@storybook/angular';
 import { select } from '@storybook/addon-knobs';
 
-import { IconComponent, ICON_TYPES } from './icon.component';
+import { DsIconComponent, ICON_TYPES } from './icon.component';
 
 export default {
   title: 'Components/Icon',
-  component: IconComponent
+  component: DsIconComponent
 } as Meta;
 
 export const Custom = () => ({
