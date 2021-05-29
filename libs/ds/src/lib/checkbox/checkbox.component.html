@@ -1,0 +1,14 @@
+<label #label class="ds-checkbox-wrapper" [for]="inputId">
+  <input #input
+    type="checkbox"
+    class="ds-checkbox-input"
+    [id]="inputId"
+    [name]="name"
+    [value]="value"
+    [checked]="checked"
+    [required]="required"
+    [disabled]="disabled"
+    (click)="_onClick($event)">
+  <ds-icon class="ds-checkbox-icon" [type]="checked ? 'checkboxChecked' : 'checkboxBlank'"></ds-icon>
+  <span class="ds-checkbox-label"><ng-content></ng-content></span>
+</label>

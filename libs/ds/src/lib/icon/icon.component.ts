@@ -2,6 +2,9 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
 
 const selector = 'ds-icon';
 
+// Increasing integer for generating unique ids for icon components.
+let nextUniqueId = 0;
+
 export const ICON_TYPES = [
   'checkCircle',
   'checkboxBlank',
@@ -23,6 +26,7 @@ export type IconType = typeof ICON_TYPES[number];
 
 @Component({
   selector: selector,
+  exportAs: 'dsIcon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -34,4 +38,11 @@ export class DsIconComponent {
   get classNames(): string {
     return `${selector} ${selector}--${this.type}`;
   }
+
+  private _uniqueId = `${selector}-${++nextUniqueId}`;
+
+  /** A unique id for the icon. If none is supplied, it will be auto-generated. */
+  @Input()
+  @HostBinding('id')
+  id: string = this._uniqueId;
 }

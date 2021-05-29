@@ -10,10 +10,16 @@ import { ThemeService } from '@radius-angular/ds';
 export class AppComponent {
   title = 'demo';
 
+  isCompleted = false;
+
   constructor (private _themeService: ThemeService) {
   }
 
   onClick() {
     // this._themeService.setTheme('dark');
+  }
+
+  onModelChange(event: any) {
+    console.log(event);
   }
 }

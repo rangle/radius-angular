@@ -7,6 +7,9 @@ import {
 
 const selector = 'ds-button';
 
+// Increasing integer for generating unique ids for button components.
+let nextUniqueId = 0;
+
 export const BUTTON_VARIANTS = ['primary', 'secondary', 'transparent'] as const;
 export type ButtonVariant = typeof BUTTON_VARIANTS[number];
 
@@ -48,12 +51,18 @@ export class DsButtonComponent {
   }
   private _classNames!: string;
 
+  private _uniqueId = `${selector}-${++nextUniqueId}`;
+
+  /** A unique id for the button. If none is supplied, it will be auto-generated. */
+  @Input()
+  @HostBinding('id')
+  id: string = this._uniqueId;
+
+  /** Whether the button is disabled. */
   @Input()
   @HostBinding(`class.${selector}--disabled`)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get disabled(): any { return this._disabled; }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  set disabled(value: any) { this._disabled = value != null && `${value}` !== 'false'; }
+  get disabled(): boolean | string { return this._disabled; }
+  set disabled(value: boolean | string) { this._disabled = value != null && `${value}` !== 'false'; }
   private _disabled = false;
 
   _haltDisabledEvents(event: Event) {

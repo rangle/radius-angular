@@ -110,6 +110,7 @@ export const themeProperties: ThemeProperties = {
   fontSizes: ['fs'],
   lineHeights: ['lh'],
   letterSpacings: ['ls'],
-  sizes: ['sz', 'px']
+  sizes: ['sz', 'px'],
+  space: ['sp', 'px']
 };
 

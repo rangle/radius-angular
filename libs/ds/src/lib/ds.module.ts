@@ -8,21 +8,22 @@ import { DsIconComponent } from './icon/icon.component';
 import { ThemeService } from './services/theme.service';
 import { ThemeOptions, THEME_OPTIONS } from './types';
 import { themes } from './types/theme';
+import { DsCheckboxComponent } from './checkbox/checkbox.component';
+import { DsLabelComponent } from './label/label.component';
+
+const DS_DECLARATIONS = [
+    DsButtonComponent,
+    DsCheckboxComponent,
+    DsIconComponent,
+    DsLabelComponent,
+    DsDirective,
+    DsIsLoadingDirective
+];
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [
-    DsButtonComponent,
-    DsIconComponent,
-    DsDirective,
-    DsIsLoadingDirective
-  ],
-  exports: [
-    DsButtonComponent,
-    DsIconComponent,
-    DsDirective,
-    DsIsLoadingDirective
-  ]
+  declarations: DS_DECLARATIONS,
+  exports: DS_DECLARATIONS
 })
 export class DsModule {
   constructor (themeService: ThemeService) {

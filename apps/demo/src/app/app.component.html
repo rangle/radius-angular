@@ -41,3 +41,7 @@
 <a ds-button="primary medium" disabled href="https://www.google.com" target="_blank">Primary Medium Disabled Link<div class="ds-icon" style="height: 20px;">:)</div></a>
 <!-- <hr>
 <p dsButton buttonType="secondary">secondary me!</p> -->
+<hr>
+<ds-checkbox name="options" value="option1" checked required disabled>Option 1</ds-checkbox>
+<hr>
+<ds-checkbox [(ngModel)]="isCompleted" (ngModelChange)="onModelChange($event)" required>With ngModel</ds-checkbox>

@@ -84,17 +84,17 @@
 
     &--small {
       font-size: var(--ds-fs0);
-      padding: var(--ds-sz0);
+      padding: var(--ds-sp1);
     }
 
     &--medium {
       font-size: var(--ds-fs1);
-      padding: var(--ds-sz1);
+      padding: var(--ds-sp2);
     }
 
     &--large {
       font-size: var(--ds-fs2);
-      padding: var(--ds-sz2);
+      padding: var(--ds-sp3);
     }
   }
 
@@ -102,7 +102,7 @@
     align-items: center;
     display: inline-flex;
     flex-direction: row;
-    gap: var(--ds-sz0);
+    gap: var(--ds-sp2);
     justify-content: center;
     width: 100%;
   }

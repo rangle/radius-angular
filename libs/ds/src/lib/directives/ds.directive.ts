@@ -20,6 +20,7 @@ import { THEME_OPTIONS, ThemeOptions } from '../types';
     [borderX], [bx],
     [borderY], [by],
     [color], [c],
+    [fontSize], [fs],
     [height], [h],
     [margin], [m],
     [marginBottom], [mb],
@@ -65,6 +66,9 @@ export class DsDirective implements OnChanges {
 
   @Input() color!: string;
   @Input() c!: string;
+
+  @Input() fontSize!: string;
+  @Input() fs!: string;
 
   @Input() height!: string;
   @Input() h!: string;
@@ -128,6 +132,7 @@ export class DsDirective implements OnChanges {
       borderRight: this.borderX || this.bx || this.borderRight || this.br,
       borderTop: this.borderY || this.by || this.borderTop || this.bt,
       color: this.color || this.c,
+      fontSize: this.fontSize || this.fs,
       height: this.height || this.h,
       margin: this.margin || this.m,
       marginBottom: this.marginY || this.my || this.marginBottom || this.mb,
