@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { DsModule } from 'ds'
+// import { DsModule } from 'ds'
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { DsModule } from 'ds'
   ],
   imports: [
     BrowserModule,
-    DsModule,
+    // DsModule,
     AppRoutingModule
   ],
   providers: [],
