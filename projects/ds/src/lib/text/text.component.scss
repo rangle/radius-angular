@@ -1,55 +1,54 @@
 :host.ds-text {
   &--l {
-    font-size: 1.25rem;
-    font-weight: bold;
-    line-height: 125%;
+    font-size: var(--ds-typography-scale-l);
+    font-weight: var(--ds-typography-weight-bold);
+    line-height: var(--ds-typography-line-height-125);
   }
 
   &--xl {
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 125%;
+    font-size: var(--ds-typography-scale-xl);
+    font-weight: var(--ds-typography-weight-bold);
+    line-height: var(--ds-typography-line-height-125);
   }
 
   &--2xl {
-    font-size: 1.75rem;
-    font-weight: bold;
-    line-height: 125%;
+    font-size: var(--ds-typography-scale-2xl);
+    font-weight: var(--ds-typography-weight-bold);
+    line-height: var(--ds-typography-line-height-125);
   }
 
 
   &--3xl {
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 125%;
+    font-size: var(--ds-typography-scale-3xl);
+    font-weight: var(--ds-typography-weight-bold);
+    line-height: var(--ds-typography-line-height-125);
   }
 
 
   &--4xl {
-    font-size: 2.5rem;
-    font-weight: bold;
-    line-height: 125%;
+    font-size: var(--ds-typography-scale-4xl);
+    font-weight: var(--ds-typography-weight-bold);
+    line-height: var(--ds-typography-line-height-125);
   }
 
 
   &--5xl {
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 125%;
+    font-size: var(--ds-typography-scale-5xl);
+    font-weight: var(--ds-typography-weight-bold);
+    line-height: var(--ds-typography-line-height-125);
   }
 
-  &--small {
-    font-size: var(--ds-fs0);
-    padding: var(--ds-space-1);
+  &--m {
+    font-size: var(--ds-typography-scale-m);
+    line-height: var(--ds-typography-line-height-150);
   }
 
-  &--medium {
-    font-size: var(--ds-fs1);
-    padding: var(--ds-space-3);
+  &--s {
+    font-size: var(--ds-typography-scale-s);
+    line-height: var(--ds-typography-line-height-150);
   }
 
-  &--large {
-    font-size: var(--ds-fs2);
-    padding: var(--ds-space-5);
+  &--xs {
+    font-size: var(--ds-typography-scale-xs);
   }
 }

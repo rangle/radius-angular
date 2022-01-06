@@ -1,56 +1,51 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
+import { BADGE } from '@geometricpanda/storybook-addon-badges';
+
 import { TextComponent } from './text.component';
+
+const DUMMY_TEXT = 'The quick brown fox jumps over the lazy dog';
 
 export default {
   title: 'Components/Text Component',
+  viewMode: 'docs',
+  parameters: {
+    badges: [BADGE.STABLE],
+  },
+  argTypes: {
+    selector: {
+      table: {
+        disable: true
+      }
+    },
+    _classNames: {
+      table: {
+        disable: true
+      }
+    },
+  },
+  text: {
+    type: 'string',
+    defaultValue: DUMMY_TEXT
+  },
   component: TextComponent,
 } as Meta;
 
-export const TEXT_5XL: Story<TextComponent> = (args: TextComponent) => ({
-  props: args,
-  template: `
-  <p ds-text="5xl">
-    The quick brown fox jumps over the lazy dog
-  </p>`,
-});
+const Template: Story = (args) => {
+  return {
+    props: args,
+    template: `<h1 ds-text size="${args.size}">${args.text}</h1>`,
+  }
+};
 
-export const TEXT_4XL: Story<TextComponent> = (args: TextComponent) => ({
-  props: args,
-  template: `
-  <p ds-text="4xl">
-    The quick brown fox jumps over the lazy dog
-  </p>`,
-});
+export const Heading = Template.bind({});
+Heading.args = {
+  text: DUMMY_TEXT,
+  size: '5xl'
+}
 
-export const TEXT_3XL: Story<TextComponent> = (args: TextComponent) => ({
-  props: args,
-  template: `
-  <p ds-text="3xl">
-    The quick brown fox jumps over the lazy dog
-  </p>`,
-});
-
-export const TEXT_2XL: Story<TextComponent> = (args: TextComponent) => ({
-  props: args,
-  template: `
-  <p ds-text="2xl">
-    The quick brown fox jumps over the lazy dog
-  </p>`,
-});
-
-export const TEXT_XL: Story<TextComponent> = (args: TextComponent) => ({
-  props: args,
-  template: `
-  <p ds-text="xl">
-    The quick brown fox jumps over the lazy dog
-  </p>`,
-});
-
-export const TEXT_L: Story<TextComponent> = (args: TextComponent) => ({
-  props: args,
-  template: `
-  <p ds-text="l">
-    L Text
-  </p>`,
-});
+export const Paragraph = Template.bind({});
+Paragraph.args = {
+  text: DUMMY_TEXT,
+  size: 'm'
+}

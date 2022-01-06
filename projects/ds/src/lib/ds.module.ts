@@ -1,18 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { ButtonComponent } from './button/button.component';
-import { HelloComponent } from './hello/hello.component';
+import { TextComponent } from './text/text.component';
 
 @NgModule({
   declarations: [
     ButtonComponent,
-    HelloComponent
+    TextComponent
   ],
   imports: [
+    CommonModule
   ],
   exports: [
     ButtonComponent,
-    HelloComponent
+    TextComponent
   ]
 })
 export class DsModule { }

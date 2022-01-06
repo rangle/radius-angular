@@ -7,17 +7,16 @@ import {
 
 const selector = 'ds-text';
 
-const TEXT_VARIANTS = ['l', 'xl', '2xl', '3xl', '4xl', '5xl'] as const;
-export type TextVariant = typeof TEXT_VARIANTS[number];
-
 @Component({
-  selector: `p[${selector}]`,
+  selector: `h1,h2,h3,h4,h5,p,label[${selector}]`,
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TextComponent {
-  public variant: TextVariant = 'l';
+  @Input() size: '5xl' | '4xl' | '3xl' | '2xl' | 'l' | 'm' | 's' | 'xs' = 'm';
+
+  private _classNames!: string;
 
   @Input(selector)
   @HostBinding('class')
@@ -25,18 +24,10 @@ export class TextComponent {
     if (this._classNames === value) {
       return;
     }
-
     this._classNames = value;
+  }
 
-    this.variant = TEXT_VARIANTS.find(variant => {
-      console.log('variant11', variant);
-      return this._classNames === variant;
-    }) || 'l';
-    console.log('this._classNames', value, this._classNames, this.variant);
-  }
   public get classNames(): string {
-    console.log(`${selector} ${selector}--${this.variant}`);
-    return `${selector} ${selector}--${this.variant}`;
+    return `${selector} ${selector}--${this.size}`;
   }
-  private _classNames!: string;
 }

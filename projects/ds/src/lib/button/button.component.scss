@@ -4,10 +4,13 @@
   border-width: 1px;
   position: relative;
   cursor: pointer;
+  display: flex;
+  vertical-align: middle;
   padding-top: var(--ds-space-2);
   padding-bottom: var(--ds-space-2);
   padding-left: var(--ds-space-7);
   padding-right: var(--ds-space-7);
+  border-radius: var(--ds-border-radius-m);
 
   &--primary {
     background-color: var(--ds-color--ui-primary-colour);
@@ -112,22 +115,18 @@
   }
 
   &--small {
-    font-size: var(--ds--label-s-font-size);
-    font-weight: var(--ds--label-s-font-weight);
-    line-height: var(--ds--label-s-line-height);
-  }
-
-  &--medium {
-    font-size: var(--ds--label-m-font-size);
-    font-weight: var(--ds--label-m-font-weight);
-    line-height: var(--ds--label-m-line-height);
+    font-size: var(--ds-typography-scale-s);
     padding-left: var(--ds-space-5);
     padding-right: var(--ds-space-5);  
   }
 
+  &--medium {
+    font-size: var(--ds-typography-scale-m);
+  }
+
   &--large {
-    font-size: var(--ds--label-m-font-size);
-    font-weight: var(--ds--label-m-font-weight);
-    line-height: var(--ds--label-m-line-height);
+    font-size: var(--ds-typography-scale-l);
+    padding-left: var(--ds-space-9);
+    padding-right: var(--ds-space-9);  
   }
 }

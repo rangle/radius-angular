@@ -1,4 +1,5 @@
 module.exports = {
+  staticDirs: ['../projects/ds/src/docs/static'],
   "stories": [
     "../**/*.stories.mdx",
     "../**/*.stories.@(js|jsx|ts|tsx)"
@@ -6,9 +7,10 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    // '@storybook/addon-actions',
-    // '@storybook/addon-jest',
-    // '@storybook/addon-storysource',
+    "@storybook/addon-a11y",
+    "@storybook/addon-storysource",
+    "storybook-design-token",
+    "@geometricpanda/storybook-addon-badges"
   ],
   "core": {
     "builder": "webpack5"
