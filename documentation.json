@@ -117,7 +117,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host.ds-button {\n  border-style: solid;\n  border-radius: 0;\n  border-width: 1px;\n  position: relative;\n  cursor: pointer;\n  display: flex;\n  vertical-align: middle;\n  padding-top: var(--ds-space-2);\n  padding-bottom: var(--ds-space-2);\n  padding-left: var(--ds-space-7);\n  padding-right: var(--ds-space-7);\n  border-radius: var(--ds-border-radius-m);\n\n  &--primary {\n    background-color: var(--ds-color--ui-primary-colour);\n    border-color: transparent;\n    color: var(--ds-color--text-inverse-colour);\n\n    svg {\n      color: var(--ds-color--text-inverse-colour);\n    }\n\n    &:hover {\n      background-color: var(--ds-color-brand-primary-main);\n    }\n\n    &:active,\n    &:focus {\n      background-color: var(--ds-color-brand-primary-dark);\n    }\n\n    &:disabled {\n      background-color: var(--ds-color--ui-disabled-colour);\n      color: var(--ds-color--text-inverse-colour);\n    }\n  }\n\n  &--secondary {\n    background-color: var(--ds-color--text-inverse-colour);\n    border-color: var(--ds-color-brand-primary);\n    color: var(--ds-color-brand-primary);\n\n    svg {\n      color: var(--ds-color-brand-primary);\n    }\n\n    &:hover {\n      color: var(--ds-color--text-inverse-colour);\n      background-color: var(--ds-color-brand-primary-main);\n    }\n\n    &:active,\n    &:focus {\n      color: var(--ds-color--text-inverse-colour);\n      background-color: var(--ds-color-brand-primary-dark);\n    }\n\n    &:disabled {\n      background-color: var(--ds-color--ui-disabled-colour);\n      color: var(--ds-color--text-inverse-colour);\n    }\n  }\n\n  &--chevron {\n    background-color: transparent;\n    border-color: transparent;\n    color: var(--ds-color-brand-primary);\n\n    svg {\n      color: var(--ds-color-brand-primary);\n    }\n\n    &:hover {\n      color: var(--ds-color-brand-primary-main);\n    }\n\n    &:active,\n    &:focus {\n      color: var(--ds-color-brand-primary-dark);\n    }\n\n    &:disabled {\n      color: var(--ds-color--ui-disabled-colour);\n    }\n  }\n\n  &--icon {\n    background-color: var(--ds-color--ui-primary-colour);\n    border-color: transparent;\n    color: var(--ds-color--text-inverse-colour);\n    padding-top: var(--ds-space-3);\n    padding-bottom: var(--ds-space-3);\n    padding-left: var(--ds-space-3);\n    padding-right: var(--ds-space-3);\n  \n\n    svg {\n      color: var(--ds-color--text-inverse-colour);\n    }\n\n    &:hover {\n      background-color: var(--ds-color-brand-primary-main);\n    }\n\n    &:active,\n    &:focus {\n      background-color: var(--ds-color-brand-primary-dark);\n    }\n\n    &:disabled {\n      background-color: var(--ds-color--ui-disabled-colour);\n      color: var(--ds-color--text-inverse-colour);\n    }\n  }\n\n  &--small {\n    font-size: var(--ds-typography-scale-s);\n    padding-left: var(--ds-space-5);\n    padding-right: var(--ds-space-5);  \n  }\n\n  &--medium {\n    font-size: var(--ds-typography-scale-m);\n  }\n\n  &--large {\n    font-size: var(--ds-typography-scale-l);\n    padding-left: var(--ds-space-9);\n    padding-right: var(--ds-space-9);  \n  }\n}\n",
+                    "data": ":host.ds-button {\n  border-style: solid;\n  border-width: 1px;\n  position: relative;\n  cursor: pointer;\n  display: flex;\n  vertical-align: middle;\n  padding-top: var(--ds-space-2);\n  padding-bottom: var(--ds-space-2);\n  padding-left: var(--ds-space-7);\n  padding-right: var(--ds-space-7);\n  border-radius: var(--ds-border-radius-m);\n\n  &--primary {\n    background-color: var(--ds-color--ui-primary-colour);\n    border-color: transparent;\n    color: var(--ds-color--text-inverse-colour);\n\n    svg {\n      color: var(--ds-color--text-inverse-colour);\n    }\n\n    &:hover {\n      background-color: var(--ds-color-brand-primary-main);\n    }\n\n    &:active,\n    &:focus {\n      background-color: var(--ds-color-brand-primary-dark);\n    }\n\n    &:disabled {\n      background-color: var(--ds-color--ui-disabled-colour);\n      color: var(--ds-color--text-inverse-colour);\n    }\n  }\n\n  &--secondary {\n    background-color: var(--ds-color--text-inverse-colour);\n    border-color: var(--ds-color-brand-primary);\n    color: var(--ds-color-brand-primary);\n\n    svg {\n      color: var(--ds-color-brand-primary);\n    }\n\n    &:hover {\n      color: var(--ds-color--text-inverse-colour);\n      background-color: var(--ds-color-brand-primary-main);\n    }\n\n    &:active,\n    &:focus {\n      color: var(--ds-color--text-inverse-colour);\n      background-color: var(--ds-color-brand-primary-dark);\n    }\n\n    &:disabled {\n      background-color: var(--ds-color--ui-disabled-colour);\n      color: var(--ds-color--text-inverse-colour);\n    }\n  }\n\n  &--chevron {\n    background-color: transparent;\n    border-color: transparent;\n    color: var(--ds-color-brand-primary);\n\n    svg {\n      color: var(--ds-color-brand-primary);\n    }\n\n    &:hover {\n      color: var(--ds-color-brand-primary-main);\n    }\n\n    &:active,\n    &:focus {\n      color: var(--ds-color-brand-primary-dark);\n    }\n\n    &:disabled {\n      color: var(--ds-color--ui-disabled-colour);\n    }\n  }\n\n  &--icon {\n    background-color: var(--ds-color--ui-primary-colour);\n    border-color: transparent;\n    color: var(--ds-color--text-inverse-colour);\n    padding-top: var(--ds-space-3);\n    padding-bottom: var(--ds-space-3);\n    padding-left: var(--ds-space-3);\n    padding-right: var(--ds-space-3);\n  \n\n    svg {\n      color: var(--ds-color--text-inverse-colour);\n    }\n\n    &:hover {\n      background-color: var(--ds-color-brand-primary-main);\n    }\n\n    &:active,\n    &:focus {\n      background-color: var(--ds-color-brand-primary-dark);\n    }\n\n    &:disabled {\n      background-color: var(--ds-color--ui-disabled-colour);\n      color: var(--ds-color--text-inverse-colour);\n    }\n  }\n\n  &--small {\n    font-size: var(--ds-typography-scale-s);\n    padding-left: var(--ds-space-5);\n    padding-right: var(--ds-space-5);  \n  }\n\n  &--medium {\n    font-size: var(--ds-typography-scale-m);\n  }\n\n  &--large {\n    font-size: var(--ds-typography-scale-l);\n    padding-left: var(--ds-space-9);\n    padding-right: var(--ds-space-9);  \n  }\n}\n",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -161,6 +161,67 @@
                 }
             },
             "templateData": "<ng-content></ng-content>"
+        },
+        {
+            "name": "CheckboxComponent",
+            "id": "component-CheckboxComponent-e65d98072c5380bcd724dd777c76c1bf",
+            "file": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [
+                "./checkbox.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\nconst selector = 'ds-checkbox';\n\n@Component({\n  selector: `input[checkbox][${selector}]`,\n  templateUrl: './checkbox.component.html',\n  styleUrls: ['./checkbox.component.scss']\n})\nexport class CheckboxComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./checkbox.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 10
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>checkbox works!</p>\n"
         },
         {
             "name": "TextComponent",
@@ -472,21 +533,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/demo/src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/demo/src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/demo/src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "fonts",
@@ -627,6 +688,16 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "'ds-button'"
+            },
+            {
+                "name": "selector",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'ds-checkbox'"
             },
             {
                 "name": "selector",
@@ -946,18 +1017,6 @@
                     "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `<h1 ds-text size=\"${args.size}\">${args.text}</h1>`,\n  }\n}"
                 }
             ],
-            "projects/demo/src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/demo/src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "projects/demo/src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -970,6 +1029,18 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
+            "projects/demo/src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/demo/src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
             "setup-jest.ts": [
                 {
                     "name": "mock",
@@ -980,6 +1051,18 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "() => {\n  let storage: { [key: string]: string } = {};\n  return {\n    getItem: (key: string) => (key in storage ? storage[key] : null),\n    setItem: (key: string, value: string) => (storage[key] = value || ''),\n    removeItem: (key: string) => delete storage[key],\n    clear: () => (storage = {}),\n  };\n}"
+                }
+            ],
+            "projects/ds/src/lib/checkbox/checkbox.component.ts": [
+                {
+                    "name": "selector",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'ds-checkbox'"
                 }
             ],
             "projects/ds/src/lib/text/text.component.ts": [
@@ -1256,6 +1339,25 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CheckboxComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "selector",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

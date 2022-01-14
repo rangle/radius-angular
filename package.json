@@ -14,7 +14,8 @@
     "test:ds:watch": "jest --config ./projects/ds/jest.config.js --passWithNoTests --watch",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "build-storybook": "npm run docs:json && build-storybook",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "private": true,
   "dependencies": {
@@ -51,6 +52,7 @@
     "@types/node": "^12.11.1",
     "@webcomponents/custom-elements": "^1.5.0",
     "babel-loader": "^8.2.2",
+    "chromatic": "^6.3.4",
     "jest": "latest",
     "ng-packagr": "^12.0.0",
     "storybook-design-token": "^1.4.0",
