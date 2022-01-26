@@ -3,16 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavComponent } from './components/nav/nav.component';
+import { NavItemComponent } from './components/nav-item/nav-item.component';
+import { ListComponent } from './components/list/list.component';
+import { ListItemComponent } from './components/list-item/list-item.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
-// import { DsModule } from 'ds'
-
+import { DsModule } from '../../../ds/src/public-api';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    NavItemComponent,
+    ListComponent,
+    ListItemComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
-    // DsModule,
+    DsModule,
     AppRoutingModule
   ],
   providers: [],

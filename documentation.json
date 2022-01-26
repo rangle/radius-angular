@@ -45,11 +45,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<h1 ds-text size=\"5xl\">Text 5XL</h1>\n<h1 ds-text size=\"4xl\">Text 4XL</h1>\n<h1 ds-text size=\"3xl\">Text 3XL</h1>\n<h1 ds-text size=\"2xl\">Text 2XL</h1>\n<h1 ds-text size=\"l\">Text L</h1>\n\n<p ds-text size=\"m\">Text M</p>\n<p ds-text size=\"s\">Text S</p>\n<p ds-text size=\"xs\">Text XS</p>\n\n<!-- <ds-text size=\"5xl\" type=\"heading\" label=\"Text 5XL\"></ds-text>\n<ds-text size=\"4xl\" type=\"heading\" label=\"Text 4XL\"></ds-text>\n<ds-text size=\"3xl\" type=\"heading\" label=\"Text 3XL\"></ds-text>\n<ds-text size=\"2xl\" type=\"heading\" label=\"Text 2XL\"></ds-text>\n<ds-text size=\"l\" type=\"heading\" label=\"Text L\"></ds-text>\n\n<ds-text type=\"heading\" label=\"Text Label\"></ds-text>\n<ds-text type=\"label\" label=\"Text Label\"></ds-text>\n<ds-text type=\"hint\" label=\"Text Label\"></ds-text> -->\n<!-- <button type=\"button\" ds-button size=\"small\">Primary Small</button>\n<hr />\n<button type=\"button\" ds-button>Primary Medium</button>\n<hr />\n<button type=\"button\" ds-button size=\"large\" disabled>Primary Large\n  Disabled</button>\n<hr />\n<button type=\"button\" ds-button variant=\"secondary\" size=\"small\">Secondary\n  Small</button>\n<hr />\n<button type=\"button\" ds-button variant=\"secondary\">Secondary Medium</button>\n<hr />\n<button type=\"button\" ds-button variant=\"secondary\" size=\"large\"\n  disabled>Secondary Large\n  Disabled</button>\n<hr />\n<button type=\"button\" ds-button variant=\"chevron\" size=\"small\">Chevron\n  Small</button>\n<hr />\n<button type=\"button\" ds-button variant=\"chevron\">Chevron Medium</button>\n<hr />\n<button type=\"button\" ds-button variant=\"chevron\" size=\"large\" disabled>Chevron\n  Large\n  Disabled</button>\n<hr />\n<button type=\"button\" ds-button variant=\"icon\" size=\"small\">\n  <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\"\n    viewBox=\"0 0 20 20\" fill=\"currentColor\">\n    <path fill-rule=\"evenodd\"\n      d=\"M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z\"\n      clip-rule=\"evenodd\" />\n  </svg>\n</button>\n<hr />\n<button type=\"button\" ds-button variant=\"icon\">\n  <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\"\n    viewBox=\"0 0 20 20\" fill=\"currentColor\">\n    <path fill-rule=\"evenodd\"\n      d=\"M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z\"\n      clip-rule=\"evenodd\" />\n  </svg>\n</button>\n<hr />\n<button type=\"button\" ds-button variant=\"icon\" size=\"large\" disabled>\n  <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\"\n    viewBox=\"0 0 20 20\" fill=\"currentColor\">\n    <path fill-rule=\"evenodd\"\n      d=\"M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z\"\n      clip-rule=\"evenodd\" />\n  </svg>\n</button>\n<hr /> -->"
+            "templateData": "<app-movies></app-movies>"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-8e76b2ed26e0ea31be116697341185b2",
+            "id": "component-ButtonComponent-43299b5da2069d19e233725daa945bec",
             "file": "projects/ds/src/lib/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -113,7 +113,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  HostBinding,\n  Input\n} from '@angular/core';\n\nconst selector = 'ds-button';\n\nconst BUTTON_VARIANTS = ['primary', 'secondary', 'chevron', 'icon'] as const;\nconst BUTTON_SIZES = ['small', 'medium', 'large'] as const;\n\n@Component({\n  selector: `button[${selector}]`,\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ButtonComponent {\n\n  @Input()\n  variant: 'primary' | 'secondary' | 'chevron' | 'icon' = 'primary';\n\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  private _classNames!: string;\n\n  @Input(selector)\n  @HostBinding('class')\n  public set classNames(value: string) {\n    if (this._classNames === value) {\n      return;\n    }\n\n    this._classNames = value;\n\n    this.variant = BUTTON_VARIANTS.find(variant => this._classNames.includes(variant)) || 'primary';\n    this.size = BUTTON_SIZES.find(size => this._classNames.includes(size)) || 'medium';\n  }\n\n  public get classNames(): string {\n    return `${selector} ${selector}--${this.variant} ${selector}--${this.size}`;\n  }\n\n}",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  HostBinding,\n  Input\n} from '@angular/core';\n\nconst selector = 'ds-button';\n\nconst BUTTON_VARIANTS = ['primary', 'secondary', 'chevron', 'icon'] as const;\nconst BUTTON_SIZES = ['small', 'medium', 'large'] as const;\n\n@Component({\n  selector: `button,a[${selector}]`,\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ButtonComponent {\n\n  @Input()\n  variant: 'primary' | 'secondary' | 'chevron' | 'icon' = 'primary';\n\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  private _classNames!: string;\n\n  @Input(selector)\n  @HostBinding('class')\n  public set classNames(value: string) {\n    if (this._classNames === value) {\n      return;\n    }\n\n    this._classNames = value;\n\n    this.variant = BUTTON_VARIANTS.find(variant => this._classNames.includes(variant)) || 'primary';\n    this.size = BUTTON_SIZES.find(size => this._classNames.includes(size)) || 'medium';\n  }\n\n  public get classNames(): string {\n    return `${selector} ${selector}--${this.variant} ${selector}--${this.size}`;\n  }\n\n}",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -163,20 +163,21 @@
             "templateData": "<ng-content></ng-content>"
         },
         {
-            "name": "CheckboxComponent",
-            "id": "component-CheckboxComponent-e65d98072c5380bcd724dd777c76c1bf",
-            "file": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+            "name": "ListComponent",
+            "id": "component-ListComponent-e81bf36a87e53e4b907c082a429b7b5b",
+            "file": "projects/demo/src/app/components/list/list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
+            "selector": "app-list",
             "styleUrls": [
-                "./checkbox.component.scss"
+                "./list.component.css"
             ],
             "styles": [],
             "templateUrl": [
-                "./checkbox.component.html"
+                "./list.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [],
@@ -189,7 +190,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 14,
+                    "line": 12,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -201,12 +202,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\nconst selector = 'ds-checkbox';\n\n@Component({\n  selector: `input[checkbox][${selector}]`,\n  templateUrl: './checkbox.component.html',\n  styleUrls: ['./checkbox.component.scss']\n})\nexport class CheckboxComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-list',\n  templateUrl: './list.component.html',\n  styleUrls: ['./list.component.css']\n})\nexport class ListComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "",
-                    "styleUrl": "./checkbox.component.scss"
+                    "styleUrl": "./list.component.css"
                 }
             ],
             "stylesData": "",
@@ -216,12 +217,343 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 10
+                "line": 8
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>checkbox works!</p>\n"
+            "templateData": "<div class=\"divide-y divide-slate-100\">\n  <ng-content></ng-content>\n</div>"
+        },
+        {
+            "name": "ListItemComponent",
+            "id": "component-ListItemComponent-8fe574e17a97b9b1be88f7819d18b61e",
+            "file": "projects/demo/src/app/components/list-item/list-item.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-list-item",
+            "styleUrls": [
+                "./list-item.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./list-item.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "movie",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "literal type"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-list-item',\n  templateUrl: './list-item.component.html',\n  styleUrls: ['./list-item.component.css']\n})\nexport class ListItemComponent {\n\n  @Input() movie!: {\n    image: string\n    title: string\n    starRating: string\n    rating: string\n    year: string\n    genre: string\n    runtime: string\n    cast: string\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".container {\n  display: flex;\n  border-top: 1px solid;\n  border-color: var(--ds-color-brand-secondary-main);\n  padding: var(--ds-space-4);\n  align-items: center;\n}\n\n.img {\n  width: 60px;\n  height: 88px;\n  border-radius: var(--ds-border-radius-m);\n  margin-right: var(--ds-space-4);\n}\n\n.content {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  padding-top: var(--ds-space-2);\n}\n\n.txt-cast {\n  padding-top: var(--ds-space-2);\n  color: var(--ds-color-brand-secondary-light);\n}",
+                    "styleUrl": "./list-item.component.css"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<article class=\"container\">\n  <img [src]=\"movie.image\" class=\"img\" />\n  <div style=\"width: 100%;\">\n    <div class=\"content\">\n      <p ds-text size=\"l\">{{ movie.title }}</p>\n      <div style=\"display: flex; align-items: center;\">\n        <svg width=\"16\" height=\"22\" fill=\"currentColor\">\n          <path\n            d=\"M7.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118L.98 9.483c-.784-.57-.381-1.81.587-1.81H5.03a1 1 0 00.95-.69L7.05 3.69z\" />\n        </svg>\n        &nbsp;&nbsp;\n        <p ds-text>{{ movie.starRating }}</p>\n      </div>\n    </div>\n    <div class=\"content\">\n      <ds-tag variant=\"secondary\">{{ movie.rating }}</ds-tag>\n      <p ds-text>{{ movie.year }}</p>\n      <p ds-text>{{ movie.genre }}</p>\n      <p ds-text>{{ movie.runtime }}</p>\n    </div>\n    <p ds-text size=\"s\" class=\"txt-cast\">{{movie.cast}}</p>\n  </div>\n</article>"
+        },
+        {
+            "name": "MoviesComponent",
+            "id": "component-MoviesComponent-bd9a8ef8f38043ab78ec1d434b5bc7b4",
+            "file": "projects/demo/src/app/components/movies/movies.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-movies",
+            "styleUrls": [
+                "./movies.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./movies.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "movies",
+                    "defaultValue": "[{\n    image: 'https://tailwindcss.com/_next/static/media/prognosis-negative.a3c55fb717747ce6804f7375a2147a76.jpg',\n    title: 'Prognosis Negative',\n    starRating: '2.66',\n    rating: 'PG-13',\n    year: '2021',\n    genre: 'Comedy',\n    runtime: '1h 46m',\n    cast: 'Simon Pegg, Zach Galifianakis'\n  }, {\n    image: 'https://tailwindcss.com/_next/static/media/rochelle-rochelle.3dafce5e8fef150b65e158fc34a74769.jpg',\n    title: 'Rochelle, Rochelle',\n    starRating: '3.25',\n    rating: 'R',\n    year: '2021',\n    genre: 'Romance',\n    runtime: '1h 46m',\n    cast: 'Emilia Clarke'\n  }, {\n    image: 'https://tailwindcss.com/_next/static/media/death-blow.8f06f1c002165401a49a4c6ec95e6500.jpg',\n    title: 'Death Blow',\n    starRating: '4.95',\n    rating: '18A',\n    year: '2020',\n    genre: 'Action',\n    runtime: '2h 46m',\n    cast: 'Idris Elba, John Cena, Thandiwe Newton'\n  }]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "literal type[]"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-movies',\n  templateUrl: './movies.component.html',\n  styleUrls: ['./movies.component.css']\n})\nexport class MoviesComponent {\n  @Input() movies: {\n    image: string\n    title: string\n    starRating: string\n    rating: string\n    year: string\n    genre: string\n    runtime: string\n    cast: string\n  }[] = [{\n    image: 'https://tailwindcss.com/_next/static/media/prognosis-negative.a3c55fb717747ce6804f7375a2147a76.jpg',\n    title: 'Prognosis Negative',\n    starRating: '2.66',\n    rating: 'PG-13',\n    year: '2021',\n    genre: 'Comedy',\n    runtime: '1h 46m',\n    cast: 'Simon Pegg, Zach Galifianakis'\n  }, {\n    image: 'https://tailwindcss.com/_next/static/media/rochelle-rochelle.3dafce5e8fef150b65e158fc34a74769.jpg',\n    title: 'Rochelle, Rochelle',\n    starRating: '3.25',\n    rating: 'R',\n    year: '2021',\n    genre: 'Romance',\n    runtime: '1h 46m',\n    cast: 'Emilia Clarke'\n  }, {\n    image: 'https://tailwindcss.com/_next/static/media/death-blow.8f06f1c002165401a49a4c6ec95e6500.jpg',\n    title: 'Death Blow',\n    starRating: '4.95',\n    rating: '18A',\n    year: '2020',\n    genre: 'Action',\n    runtime: '2h 46m',\n    cast: 'Idris Elba, John Cena, Thandiwe Newton'\n  }]\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".container {\n  width: max-content;\n  background-color: var(--ds-color--ui-background-2-colour);\n  border-radius: var(--ds-border-radius-m);\n  border: 1px solid;\n  border-color: var(--ds-color-brand-secondary-main);\n  box-shadow: var(--ds-shadow-100);\n  margin: var(--ds-space-4);\n}\n\n.nav {\n  display: flex;\n  padding: var(--ds-space-4);\n}",
+                    "styleUrl": "./movies.component.css"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div class=\"container\">\n  <div class=\"nav\">\n    <a ds-button>\n      New Releases\n    </a>\n    &nbsp;&nbsp;\n    <a ds-button variant=\"secondary\">\n      Top Rated\n    </a>\n    &nbsp;&nbsp;\n    <a ds-button variant=\"secondary\">\n      Editor's Pick\n    </a>\n  </div>\n  <app-list>\n    <app-list-item *ngFor=\"let movie of movies\" [movie]=\"movie\"></app-list-item>\n  </app-list>\n</div>"
+        },
+        {
+            "name": "NavComponent",
+            "id": "component-NavComponent-efded6259d8eca27c760119ffc7aa467",
+            "file": "projects/demo/src/app/components/nav/nav.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-nav",
+            "styleUrls": [
+                "./nav.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./nav.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-nav',\n  templateUrl: './nav.component.html',\n  styleUrls: ['./nav.component.css']\n})\nexport class NavComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./nav.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<nav class=\"py-4 px-6 text-sm font-medium\">\n  <div class=\"flex space-x-3\">\n    <ng-content></ng-content>\n  </div>\n</nav>"
+        },
+        {
+            "name": "NavItemComponent",
+            "id": "component-NavItemComponent-f544afbde6e651cd4b69eadeacae9bf5",
+            "file": "projects/demo/src/app/components/nav-item/nav-item.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-nav-item",
+            "styleUrls": [
+                "./nav-item.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./nav-item.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "href",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string"
+                },
+                {
+                    "name": "isActive",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-nav-item',\n  templateUrl: './nav-item.component.html',\n  styleUrls: ['./nav-item.component.css']\n})\nexport class NavItemComponent {\n\n  @Input() href!: string\n  @Input() isActive: boolean = false\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./nav-item.component.css"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<a ds-button>{{href}}</a>"
+        },
+        {
+            "name": "TagComponent",
+            "id": "component-TagComponent-f4f0614e225229c78718f36afe3c20cd",
+            "file": "projects/ds/src/lib/tag/tag.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ds-tag",
+            "styleUrls": [
+                "./tag.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./tag.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "selector",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "string"
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "\"primary\" | \"secondary\" | \"error\" | \"success\" | \"alert\""
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'solid'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "\"solid\" | \"outline\""
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "_classNames",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        120
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';\n\nconst selector = 'ds-tag';\n\n@Component({\n  selector: 'ds-tag',\n  templateUrl: './tag.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  styleUrls: ['./tag.component.scss'],\n})\nexport class TagComponent {\n\n  @Input()\n  type: 'primary' | 'secondary' | 'error' | 'success' | 'alert' = 'primary';\n\n  @Input()\n  variant: 'solid' | 'outline' = 'solid';\n\n  private _classNames!: string;\n\n  @Input(selector)\n  @HostBinding('class')\n  public set classNames(value: string) {\n    if (this._classNames === value) {\n      return;\n    }\n\n    this._classNames = value;\n  }\n\n  public get classNames(): string {\n    return `${selector} ${selector}--${this.type} ${selector}--${this.variant}`;\n  }\n\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host.ds-tag {\n  height: fit-content;\n  display: inline-block;\n  padding: 0 var(--ds-space-2);\n  white-space: nowrap;\n  border-radius: var(--ds-border-radius-m);\n  border-style: solid;\n  border-width: 1px;\n  font-size: 11px;\n  border-color: transparent;\n  \n  &--primary {\n    background-color: var(--ds-color--ui-primary-colour);\n    color: var(--ds-color--text-inverse-colour);\n  }\n\n  &--secondary {\n    background-color: var(--ds-color-brand-primary-main);\n    color: var(--ds-color--text-inverse-colour);\n  }\n\n  &--error {\n    background-color: var(--ds-color--ui-error-default-colour);\n    color: var(--ds-color--text-inverse-colour);\n  }\n\n  &--success {\n    background-color: var(--ds-color--ui-success-default-colour);\n    color: var(--ds-color--text-inverse-colour);\n  }\n\n  &--alert {\n    background-color: var(--ds-color--ui-alert-default-colour);\n    color: var(--ds-color--text-inverse-colour);\n  }\n}",
+                    "styleUrl": "./tag.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "classNames": {
+                    "name": "classNames",
+                    "setSignature": {
+                        "name": "classNames",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 23,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "classNames",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 31
+                    }
+                }
+            },
+            "templateData": "<ng-content></ng-content>"
         },
         {
             "name": "TextComponent",
@@ -334,13 +666,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-62be5ea24031217520ce700accd20f3e",
+            "id": "module-AppModule-fbc2a741b0453eca801bc48f89e747f3",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/demo/src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\n\n// import { DsModule } from 'ds'\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    // DsModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { NavComponent } from './components/nav/nav.component';\nimport { NavItemComponent } from './components/nav-item/nav-item.component';\nimport { ListComponent } from './components/list/list.component';\nimport { ListItemComponent } from './components/list-item/list-item.component';\nimport { MoviesComponent } from './components/movies/movies.component';\n\nimport { DsModule } from '../../../ds/src/public-api';\n@NgModule({\n  declarations: [\n    AppComponent,\n    NavComponent,\n    NavItemComponent,\n    ListComponent,\n    ListItemComponent,\n    MoviesComponent\n  ],\n  imports: [\n    BrowserModule,\n    DsModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -351,6 +683,21 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "ListComponent"
+                        },
+                        {
+                            "name": "ListItemComponent"
+                        },
+                        {
+                            "name": "MoviesComponent"
+                        },
+                        {
+                            "name": "NavComponent"
+                        },
+                        {
+                            "name": "NavItemComponent"
                         }
                     ]
                 },
@@ -359,6 +706,9 @@
                     "elements": [
                         {
                             "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "DsModule"
                         }
                     ]
                 },
@@ -418,13 +768,13 @@
         },
         {
             "name": "DsModule",
-            "id": "module-DsModule-78a5f56cf3513a6cf44033a1f07dfdb0",
+            "id": "module-DsModule-ede9ba1ab00fea88a72659ace223ff91",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ds/src/lib/ds.module.ts",
             "methods": [],
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\n\nimport { ButtonComponent } from './button/button.component';\nimport { TextComponent } from './text/text.component';\n\n@NgModule({\n  declarations: [\n    ButtonComponent,\n    TextComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    ButtonComponent,\n    TextComponent\n  ]\n})\nexport class DsModule { }\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\n\nimport { ButtonComponent } from './button/button.component';\nimport { TextComponent } from './text/text.component';\nimport { TagComponent } from './tag/tag.component';\n\n@NgModule({\n  declarations: [\n    ButtonComponent,\n    TextComponent,\n    TagComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    ButtonComponent,\n    TagComponent,\n    TextComponent\n  ]\n})\nexport class DsModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -435,6 +785,9 @@
                     "elements": [
                         {
                             "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "TagComponent"
                         },
                         {
                             "name": "TextComponent"
@@ -450,6 +803,9 @@
                     "elements": [
                         {
                             "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "TagComponent"
                         },
                         {
                             "name": "TextComponent"
@@ -469,6 +825,16 @@
     ],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "Alert",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
             {
                 "name": "breakpoints",
                 "ctype": "miscellaneous",
@@ -533,6 +899,16 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/demo/src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/demo/src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -540,14 +916,14 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
-                "name": "environment",
+                "name": "Error",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/demo/src/environments/environment.prod.ts",
+                "file": "projects/ds/src/lib/tag/tag.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "fonts",
@@ -670,10 +1046,30 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/ds/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/tag/tag.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -693,11 +1089,11 @@
                 "name": "selector",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+                "file": "projects/ds/src/lib/tag/tag.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "string",
-                "defaultValue": "'ds-checkbox'"
+                "defaultValue": "'ds-tag'"
             },
             {
                 "name": "selector",
@@ -730,6 +1126,16 @@
                 "defaultValue": "[0, 4, 8, 16, 32, 64, 128, 256, 512]"
             },
             {
+                "name": "Success",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -738,6 +1144,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `\n      <button ds-button variant=\"${args.variant}\" size=\"${args.size}\">\n        ${args.label}\n      </button>`,\n  }\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `\n      <ds-tag type=\"${args.type}\" variant=\"${args.variant}\">\n        ${args.label}\n      </ds-tag>`,\n  }\n}"
             },
             {
                 "name": "Template",
@@ -777,6 +1193,68 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/ds/src/lib/tag/tag.stories.ts": [
+                {
+                    "name": "Alert",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Error",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Success",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ds/src/lib/tag/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `\n      <ds-tag type=\"${args.type}\" variant=\"${args.variant}\">\n        ${args.label}\n      </ds-tag>`,\n  }\n}"
+                }
+            ],
             "projects/ds/src/docs/theme.ts": [
                 {
                     "name": "breakpoints",
@@ -1017,18 +1495,6 @@
                     "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `<h1 ds-text size=\"${args.size}\">${args.text}</h1>`,\n  }\n}"
                 }
             ],
-            "projects/demo/src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/demo/src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
-            ],
             "projects/demo/src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -1039,6 +1505,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "projects/demo/src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/demo/src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "setup-jest.ts": [
@@ -1053,16 +1531,16 @@
                     "defaultValue": "() => {\n  let storage: { [key: string]: string } = {};\n  return {\n    getItem: (key: string) => (key in storage ? storage[key] : null),\n    setItem: (key: string, value: string) => (storage[key] = value || ''),\n    removeItem: (key: string) => delete storage[key],\n    clear: () => (storage = {}),\n  };\n}"
                 }
             ],
-            "projects/ds/src/lib/checkbox/checkbox.component.ts": [
+            "projects/ds/src/lib/tag/tag.component.ts": [
                 {
                     "name": "selector",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+                    "file": "projects/ds/src/lib/tag/tag.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
-                    "defaultValue": "'ds-checkbox'"
+                    "defaultValue": "'ds-tag'"
                 }
             ],
             "projects/ds/src/lib/text/text.component.ts": [
@@ -1132,6 +1610,51 @@
                 "name": "AppComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/demo/src/app/components/list-item/list-item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ListItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/demo/src/app/components/list/list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ListComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/demo/src/app/components/movies/movies.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MoviesComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/demo/src/app/components/nav-item/nav-item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/demo/src/app/components/nav/nav.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -1344,20 +1867,80 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+                "filePath": "projects/ds/src/lib/tag/tag.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "CheckboxComponent",
+                "name": "TagComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
-                "filePath": "projects/ds/src/lib/checkbox/checkbox.component.ts",
+                "filePath": "projects/ds/src/lib/tag/tag.component.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "selector",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ds/src/lib/tag/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Alert",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ds/src/lib/tag/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Error",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ds/src/lib/tag/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ds/src/lib/tag/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ds/src/lib/tag/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ds/src/lib/tag/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

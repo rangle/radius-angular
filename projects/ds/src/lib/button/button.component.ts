@@ -11,7 +11,7 @@ const BUTTON_VARIANTS = ['primary', 'secondary', 'chevron', 'icon'] as const;
 const BUTTON_SIZES = ['small', 'medium', 'large'] as const;
 
 @Component({
-  selector: `button[${selector}]`,
+  selector: `button,a[${selector}]`,
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

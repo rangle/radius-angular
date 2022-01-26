@@ -9,7 +9,6 @@ const tokenContext = require.context(
   true,
   /.\.(css|less|scss|svg)$/
 );
-console.log(tokenContext);
 
 const tokenFiles = tokenContext.keys().map(function (filename) {
   return { filename: filename, content: tokenContext(filename).default };
