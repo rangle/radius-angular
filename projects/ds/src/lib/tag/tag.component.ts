@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
 
 const selector = 'ds-tag';
-
 @Component({
   selector: 'ds-tag',
   templateUrl: './tag.component.html',
@@ -31,6 +30,4 @@ export class TagComponent {
   public get classNames(): string {
     return `${selector} ${selector}--${this.type}--${this.variant}`;
   }
-
-
 }

@@ -1,6 +1,5 @@
 :host.ds-button {
-  border-style: solid;
-  border-width: 1px;
+  border-style: none;
   position: relative;
   cursor: pointer;
   display: flex;
@@ -12,12 +11,11 @@
   border-radius: var(--ds-border-radius-m);
 
   &--primary {
-    background-color: var(--ds-color--ui-primary-colour);
-    border-color: transparent;
-    color: var(--ds-color--text-inverse-colour);
+    background-color: var(--ds-color--ui-primary);
+    color: var(--ds-color--text-inverse);
 
     svg {
-      color: var(--ds-color--text-inverse-colour);
+      color: var(--ds-color--text-inverse);
     }
 
     &:hover {
@@ -30,44 +28,44 @@
     }
 
     &:disabled {
-      background-color: var(--ds-color--ui-disabled-colour);
-      color: var(--ds-color--text-inverse-colour);
+      background-color: var(--ds-color--ui-disabled);
+      color: var(--ds-color--text-inverse);
     }
   }
 
   &--secondary {
-    background-color: var(--ds-color--text-inverse-colour);
-    border-color: var(--ds-color-brand-primary);
-    color: var(--ds-color-brand-primary);
+    background-color: var(--ds-color--text-inverse);
+    border-color: var(--ds-color--ui-primary);
+    color: var(--ds-color--ui-primary);
 
     svg {
-      color: var(--ds-color-brand-primary);
+      color: var(--ds-color--ui-primary);
     }
 
     &:hover {
-      color: var(--ds-color--text-inverse-colour);
+      color: var(--ds-color--text-inverse);
       background-color: var(--ds-color-brand-primary-main);
     }
 
     &:active,
     &:focus {
-      color: var(--ds-color--text-inverse-colour);
+      color: var(--ds-color--text-inverse);
       background-color: var(--ds-color-brand-primary-dark);
     }
 
     &:disabled {
-      background-color: var(--ds-color--ui-disabled-colour);
-      color: var(--ds-color--text-inverse-colour);
+      background-color: var(--ds-color--ui-disabled);
+      color: var(--ds-color--text-inverse);
     }
   }
 
   &--chevron {
     background-color: transparent;
     border-color: transparent;
-    color: var(--ds-color-brand-primary);
+    color: var(--ds-color--ui-primary);
 
     svg {
-      color: var(--ds-color-brand-primary);
+      color: var(--ds-color--ui-primary);
     }
 
     &:hover {
@@ -80,14 +78,14 @@
     }
 
     &:disabled {
-      color: var(--ds-color--ui-disabled-colour);
+      color: var(--ds-color--ui-disabled);
     }
   }
 
   &--icon {
-    background-color: var(--ds-color--ui-primary-colour);
+    background-color: var(--ds-color--ui-primary);
     border-color: transparent;
-    color: var(--ds-color--text-inverse-colour);
+    color: var(--ds-color--text-inverse);
     padding-top: var(--ds-space-3);
     padding-bottom: var(--ds-space-3);
     padding-left: var(--ds-space-3);
@@ -95,7 +93,7 @@
   
 
     svg {
-      color: var(--ds-color--text-inverse-colour);
+      color: var(--ds-color--text-inverse);
     }
 
     &:hover {
@@ -108,8 +106,8 @@
     }
 
     &:disabled {
-      background-color: var(--ds-color--ui-disabled-colour);
-      color: var(--ds-color--text-inverse-colour);
+      background-color: var(--ds-color--ui-disabled);
+      color: var(--ds-color--text-inverse);
     }
   }
 

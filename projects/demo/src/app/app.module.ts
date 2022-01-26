@@ -10,6 +10,7 @@ import { ListItemComponent } from './components/list-item/list-item.component';
 import { MoviesComponent } from './components/movies/movies.component';
 
 import { DsModule } from '../../../ds/src/public-api';
+import { EditorModule } from './editor/editor.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { DsModule } from '../../../ds/src/public-api';
   imports: [
     BrowserModule,
     DsModule,
+    EditorModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,4 +1,6 @@
 :host.ds-text {
+  color: var(--ds-color--text-primary);
+
   &--l {
     font-size: var(--ds-typography-scale-l);
     font-weight: var(--ds-typography-weight-bold);
