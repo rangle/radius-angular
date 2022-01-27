@@ -1,5 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 
+const THEME_DEFAULT = [{
+  variable: '--ds-color--ui-primary',
+  value: '#262626'
+}, {
+  variable: '--ds-color--text-inverse',
+  value: '#FFFFFF'
+}, {
+  variable: '--ds-color--text-primary',
+  value: '#262626'
+}, {
+  variable: '--ds-color--ui-background-1',
+  value: '#dee2e6'
+}, {
+  variable: '--ds-color--ui-background-2',
+  value: '#ced4da'
+}, {
+  variable: '--ds-color-brand-secondary-main',
+  value: '#262626'
+}, {
+  variable: '--ds-border-radius-m',
+  value: '8px'
+}];
+
 const THEME_1 = [{
   variable: '--ds-color--ui-primary',
   value: '#e63946'
@@ -55,13 +78,15 @@ const THEME_2 = [{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    setTimeout(() => this.changeTheme(THEME_1), 2500);
-    setTimeout(() => this.changeTheme(THEME_2), 5000);
-  }
+export class AppComponent {
 
-  changeTheme(tokens: any[]) {
+  applyTheme(index: number): void {
+    let tokens = THEME_DEFAULT;
+    if (index === 1) {
+      tokens = THEME_1;
+    } else if (index === 2) {
+      tokens = THEME_2;
+    }
     tokens.forEach((token) => {
       document.documentElement.style
         .setProperty(token.variable, token.value);
