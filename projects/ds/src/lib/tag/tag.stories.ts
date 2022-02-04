@@ -4,7 +4,7 @@ import { BADGE } from '@geometricpanda/storybook-addon-badges';
 import { TagComponent } from './tag.component';
 
 export default {
-  title: 'Components/Tag Component',
+  title: 'Components/Tag',
   viewMode: 'docs',
   parameters: {
     badges: [BADGE.STABLE],

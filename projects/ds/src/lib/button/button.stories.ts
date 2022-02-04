@@ -8,7 +8,7 @@ const icon = `<svg width="15px" height="15px" xmlns="http://www.w3.org/2000/svg"
 </svg>`;
 
 export default {
-  title: 'Components/Button Component',
+  title: 'Components/Button',
   viewMode: 'docs',
   parameters: {
     badges: [BADGE.BETA],

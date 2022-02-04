@@ -7,7 +7,7 @@ import { TextComponent } from './text.component';
 const DUMMY_TEXT = 'The quick brown fox jumps over the lazy dog';
 
 export default {
-  title: 'Components/Text Component',
+  title: 'Components/Text',
   viewMode: 'docs',
   parameters: {
     badges: [BADGE.STABLE],

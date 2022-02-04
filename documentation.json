@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-5edef40f0c335fa610d2ec1faf0c47bc",
+            "id": "component-AppComponent-93f4f0817bc3f1db2e91989e8d4a46a8",
             "file": "projects/demo/src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -30,11 +30,11 @@
             "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "changeTheme",
+                    "name": "applyTheme",
                     "args": [
                         {
-                            "name": "tokens",
-                            "type": "any[]",
+                            "name": "index",
+                            "type": "number",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -42,13 +42,13 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 64,
+                    "line": 83,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "name": "tokens",
-                            "type": "any[]",
+                            "name": "index",
+                            "type": "number",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -56,16 +56,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 59,
-                    "deprecated": false,
-                    "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
@@ -75,7 +65,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\nconst THEME_1 = [{\n  variable: '--ds-color--ui-primary',\n  value: '#e63946'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#f1faee'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#457b9d'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#f1faee'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#a8dadc'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#0466c8'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '25px'\n}];\n\n\nconst THEME_2 = [{\n  variable: '--ds-color--ui-primary',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color-brand-primary-main',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#ffaffb'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#acf8cb'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#ffaffb'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#acf8cb'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '0px'\n}];\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\nexport class AppComponent implements OnInit {\n  ngOnInit(): void {\n    setTimeout(() => this.changeTheme(THEME_1), 2500);\n    setTimeout(() => this.changeTheme(THEME_2), 5000);\n  }\n\n  changeTheme(tokens: any[]) {\n    tokens.forEach((token) => {\n      document.documentElement.style\n        .setProperty(token.variable, token.value);\n    })\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\nconst THEME_DEFAULT = [{\n  variable: '--ds-color--ui-primary',\n  value: '#262626'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#FFFFFF'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#262626'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#dee2e6'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#ced4da'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#262626'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '8px'\n}];\n\nconst THEME_1 = [{\n  variable: '--ds-color--ui-primary',\n  value: '#e63946'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#f1faee'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#457b9d'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#f1faee'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#a8dadc'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#0466c8'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '25px'\n}];\n\n\nconst THEME_2 = [{\n  variable: '--ds-color--ui-primary',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color-brand-primary-main',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#ffaffb'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#acf8cb'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#ffaffb'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#acf8cb'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '0px'\n}];\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\nexport class AppComponent {\n\n  applyTheme(index: number): void {\n    let tokens = THEME_DEFAULT;\n    if (index === 1) {\n      tokens = THEME_1;\n    } else if (index === 2) {\n      tokens = THEME_2;\n    }\n    tokens.forEach((token) => {\n      document.documentElement.style\n        .setProperty(token.variable, token.value);\n    })\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -84,10 +74,7 @@
                 }
             ],
             "stylesData": "",
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<div style=\"display: flex;\">\n  <app-movies></app-movies>\n  <app-editor></app-editor>\n</div>"
+            "templateData": "<div style=\"display: flex;\">\n  <button ds-button (click)=\"applyTheme(0)\">Reset Theme One</button>\n  &nbsp;&nbsp;\n  <button ds-button (click)=\"applyTheme(1)\">Apply Theme One</button>\n  &nbsp;&nbsp;\n  <button ds-button (click)=\"applyTheme(2)\">Apply Theme Two</button>\n</div>\n<div style=\"display: flex;\">\n  <app-movies></app-movies>\n  <app-editor></app-editor>\n</div>"
         },
         {
             "name": "ButtonComponent",
@@ -1397,21 +1384,21 @@
                 "name": "selector",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ds/src/lib/text/text.component.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "string",
-                "defaultValue": "'ds-text'"
-            },
-            {
-                "name": "selector",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ds/src/lib/tag/tag.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "'ds-tag'"
+            },
+            {
+                "name": "selector",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/text/text.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'ds-text'"
             },
             {
                 "name": "sizes",
@@ -1457,21 +1444,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ds/src/lib/text/text.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `<h1 ds-text size=\"${args.size}\">${args.text}</h1>`,\n  }\n}"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ds/src/lib/tag/tag.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `\n      <ds-tag type=\"${args.type}\" variant=\"${args.variant}\">\n        ${args.label}\n      </ds-tag>`,\n  }\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/text/text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `<h1 ds-text size=\"${args.size}\">${args.text}</h1>`,\n  }\n}"
             },
             {
                 "name": "THEME_1",
@@ -1492,6 +1479,16 @@
                 "deprecationMessage": "",
                 "type": "[]",
                 "defaultValue": "[{\n  variable: '--ds-color--ui-primary',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color-brand-primary-main',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#ffaffb'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#acf8cb'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#ffaffb'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#acf8cb'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '0px'\n}]"
+            },
+            {
+                "name": "THEME_DEFAULT",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/demo/src/app/app.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[{\n  variable: '--ds-color--ui-primary',\n  value: '#262626'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#FFFFFF'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#262626'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#dee2e6'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#ced4da'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#262626'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '8px'\n}]"
             }
         ],
         "functions": [],
@@ -1859,18 +1856,6 @@
                     "defaultValue": "() => {\n  let storage: { [key: string]: string } = {};\n  return {\n    getItem: (key: string) => (key in storage ? storage[key] : null),\n    setItem: (key: string, value: string) => (storage[key] = value || ''),\n    removeItem: (key: string) => delete storage[key],\n    clear: () => (storage = {}),\n  };\n}"
                 }
             ],
-            "projects/ds/src/lib/text/text.component.ts": [
-                {
-                    "name": "selector",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ds/src/lib/text/text.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "defaultValue": "'ds-text'"
-                }
-            ],
             "projects/ds/src/lib/tag/tag.component.ts": [
                 {
                     "name": "selector",
@@ -1881,6 +1866,18 @@
                     "deprecationMessage": "",
                     "type": "string",
                     "defaultValue": "'ds-tag'"
+                }
+            ],
+            "projects/ds/src/lib/text/text.component.ts": [
+                {
+                    "name": "selector",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ds/src/lib/text/text.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'ds-text'"
                 }
             ],
             "projects/demo/src/app/app.component.ts": [
@@ -1903,6 +1900,16 @@
                     "deprecationMessage": "",
                     "type": "[]",
                     "defaultValue": "[{\n  variable: '--ds-color--ui-primary',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color-brand-primary-main',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#ffaffb'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#a9005b'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#acf8cb'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#ffaffb'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#acf8cb'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '0px'\n}]"
+                },
+                {
+                    "name": "THEME_DEFAULT",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/demo/src/app/app.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[{\n  variable: '--ds-color--ui-primary',\n  value: '#262626'\n}, {\n  variable: '--ds-color--text-inverse',\n  value: '#FFFFFF'\n}, {\n  variable: '--ds-color--text-primary',\n  value: '#262626'\n}, {\n  variable: '--ds-color--ui-background-1',\n  value: '#dee2e6'\n}, {\n  variable: '--ds-color--ui-background-2',\n  value: '#ced4da'\n}, {\n  variable: '--ds-color-brand-secondary-main',\n  value: '#262626'\n}, {\n  variable: '--ds-border-radius-m',\n  value: '8px'\n}]"
                 }
             ]
         },
@@ -1959,7 +1966,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -1978,6 +1985,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "THEME_2",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/demo/src/app/app.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "THEME_DEFAULT",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
