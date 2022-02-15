@@ -1,11 +1,10 @@
-<div style="display: flex;">
-  <button ds-button (click)="applyTheme(0)">Reset Theme One</button>
-  &nbsp;&nbsp;
-  <button ds-button (click)="applyTheme(1)">Apply Theme One</button>
-  &nbsp;&nbsp;
-  <button ds-button (click)="applyTheme(2)">Apply Theme Two</button>
-</div>
-<div style="display: flex;">
-  <app-movies></app-movies>
-  <app-editor></app-editor>
+<div style="max-width: 1200px; margin: auto;">
+  <div style="display: flex; justify-content: center; padding-top: 1rem;">
+    <button ds-button (click)="applyTheme(0)">Reset Theme One</button>
+    &nbsp;&nbsp;
+    <button ds-button (click)="applyTheme(1)">Apply Theme One</button>
+    &nbsp;&nbsp;
+    <button ds-button (click)="applyTheme(2)">Apply Theme Two</button>
+  </div>
+  <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,97 @@
+.two-blog-list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.two-blog-post {
+  width: 50%;
+  box-sizing:border-box;
+  padding: var(--ds-space-2);
+  display: flex;
+}
+
+.two-blog-post-inner {
+  margin: var(--ds-space-6); 
+  padding: var(--ds-space-6);
+  height: 100%;
+  background-color: var(--ds-color--ui-background-2);
+  border-radius: var(--ds-border-radius-m);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.two-blog-img {
+  width: 40%;
+  /* height: 250px; */
+  border-top-left-radius: var(--ds-border-radius-m);
+  border-bottom-left-radius: var(--ds-border-radius-m);
+}
+
+.two-blog-meta {
+  width: 60%;
+  padding: var(--ds-space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--ds-color--ui-background-2);
+  border-top-right-radius: var(--ds-border-radius-m);
+  border-bottom-right-radius: var(--ds-border-radius-m);
+}
+
+.two-blog-tags {
+  width: 70%;
+}
+
+.one-blog-list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.one-blog-post {
+  width: 50%;
+  box-sizing:border-box;
+  padding: var(--ds-space-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.one-blog-post-inner {
+  margin: var(--ds-space-6); 
+  padding: var(--ds-space-6);
+  height: 100%;
+  background-color: var(--ds-color--ui-background-2);
+  border-radius: var(--ds-border-radius-m);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.one-blog-img {
+  margin-top: var(--ds-space-4);
+  max-width: 500px;
+  border-radius: var(--ds-border-radius-m);
+}
+
+.one-blog-meta {
+  width: 100%;
+  padding-top: var(--ds-space-4);
+  padding-bottom: var(--ds-space-4);
+  display: flex;
+  justify-content: space-between;
+}
+
+.one-blog-tags {
+  margin-top: var(--ds-space-4);
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  display: flex;
+  align-items: end;
+}

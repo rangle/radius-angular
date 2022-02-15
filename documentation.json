@@ -1334,7 +1334,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ds/src/lib/button/button.stories.ts",
+                "file": "projects/ds/src/lib/tag/tag.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1344,16 +1344,6 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ds/src/lib/tag/tag.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ds/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1371,14 +1361,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "selector",
+                "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ds/src/lib/button/button.component.ts",
+                "file": "projects/ds/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "string",
-                "defaultValue": "'ds-button'"
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "selector",
@@ -1399,6 +1389,16 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "'ds-text'"
+            },
+            {
+                "name": "selector",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/button/button.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'ds-button'"
             },
             {
                 "name": "sizes",
@@ -1434,16 +1434,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ds/src/lib/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `\n      <button ds-button variant=\"${args.variant}\" size=\"${args.size}\">\n        ${args.label}\n      </button>`,\n  }\n}"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ds/src/lib/tag/tag.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1459,6 +1449,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `<h1 ds-text size=\"${args.size}\">${args.text}</h1>`,\n  }\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ds/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `\n      <button ds-button variant=\"${args.variant}\" size=\"${args.size}\">\n        ${args.label}\n      </button>`,\n  }\n}"
             },
             {
                 "name": "THEME_1",

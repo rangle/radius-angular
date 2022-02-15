@@ -1,0 +1,45 @@
+<ng-container *ngIf="variant === 'one'">
+  <div class="one-blog-list-container">
+    <div *ngFor="let blog of BLOGS" class="one-blog-post">
+      <div class="one-blog-post-inner">
+        <p ds-text size="2xl">{{blog.title}}</p>
+        <img [attr.src]="blog.coverImage" class="one-blog-img" />
+        <div class="one-blog-meta">
+          <p ds-text size="m">{{blog.authors}}</p>
+          <ds-tag>
+            {{blog.publishDate}}
+          </ds-tag>
+        </div>
+        <p ds-text size="s">{{blog.description}}</p>
+        <p ds-text size="m" class="one-blog-tags">{{blog.tags}}</p>
+        <br />
+        <br />
+        <a target="_blank" [attr.href]="blog.url" ds-button size="small">Read
+          More</a>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="variant === 'two'">
+  <div class="two-blog-list-container">
+    <div *ngFor="let blog of BLOGS" class="two-blog-post">
+      <img [attr.src]="blog.coverImage" class="two-blog-img" />
+      <div class="two-blog-meta">
+        <p ds-text size="l">{{blog.title}}</p>
+        <br />
+        <div style="display: flex;justify-content: space-between; ">
+          <ds-tag>
+            {{blog.publishDate}}
+          </ds-tag>
+          <p ds-text size="s">{{blog.authors}}</p>
+        </div>
+        <br />
+        <div style="display: flex;justify-content: end; ">
+          <a target="_blank" [attr.href]="blog.url" ds-button variant="primary"
+            size="small">Read
+            More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
