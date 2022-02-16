@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DsModule } from '../../../../../ds/src/public-api';
+import { ListItemComponent } from '../list-item/list-item.component';
+import { ListComponent } from '../list/list.component';
 
 import { MoviesComponent } from './movies.component';
 
@@ -8,9 +11,10 @@ describe('MoviesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MoviesComponent ]
+      imports: [DsModule],
+      declarations: [ListComponent, ListItemComponent, MoviesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
