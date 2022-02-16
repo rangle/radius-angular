@@ -13,7 +13,6 @@ const tokenContext = require.context(
 const tokenFiles = tokenContext.keys().map(function (filename) {
   return { filename: filename, content: tokenContext(filename).default };
 });
-console.log(tokenFiles);
 
 export const parameters = {
   viewMode: 'docs',

@@ -5,12 +5,13 @@ module.exports = {
     "../**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
+    "@geometricpanda/storybook-addon-badges",
     "@storybook/addon-a11y",
+    "@storybook/addon-essentials",
+    "@storybook/addon-links",
     "@storybook/addon-storysource",
+    '@storybook/addon-toolbars',
     "storybook-design-token",
-    "@geometricpanda/storybook-addon-badges"
   ],
   "core": {
     "builder": "webpack5"

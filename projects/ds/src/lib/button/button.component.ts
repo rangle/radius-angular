@@ -18,9 +18,15 @@ const BUTTON_SIZES = ['small', 'medium', 'large'] as const;
 })
 export class ButtonComponent {
 
+  /**
+  Sets the variant of the button.
+  */
   @Input()
   variant: 'primary' | 'secondary' | 'chevron' | 'icon' = 'primary';
 
+  /**
+  Sets the size of the button.
+  */
   @Input()
   size: 'small' | 'medium' | 'large' = 'medium';
 
