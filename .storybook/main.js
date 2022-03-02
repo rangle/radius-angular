@@ -9,7 +9,6 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-essentials",
     "@storybook/addon-links",
-    "@storybook/addon-storysource",
     '@storybook/addon-toolbars',
     "storybook-design-token",
   ],
