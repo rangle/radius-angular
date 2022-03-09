@@ -920,7 +920,7 @@
                     }
                 }
             },
-            "templateData": "<ng-content></ng-content>\n<!-- <ng-container [ngSwitch]=\"type\">\n  <h1 [ngClass]=\"classNames\" *ngSwitchCase=\"'heading'\">{{label}}</h1>\n  <label [ngClass]=\"classNames\" *ngSwitchCase=\"'label'\">{{label}}</label>\n  <p [ngClass]=\"classNames\" *ngSwitchDefault>{{label}}</p>\n</ng-container> -->"
+            "templateData": "<ng-content></ng-content>"
         }
     ],
     "modules": [
@@ -1213,21 +1213,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/demo/src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/demo/src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/demo/src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Error",
@@ -1799,18 +1799,6 @@
                     "defaultValue": "(args) => {\n  return {\n    props: args,\n    template: `<h1 ds-text size=\"${args.size}\">${args.text}</h1>`,\n  }\n}"
                 }
             ],
-            "projects/demo/src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/demo/src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
-            ],
             "projects/demo/src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -1821,6 +1809,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "projects/demo/src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/demo/src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "setup-jest.ts": [
