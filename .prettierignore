@@ -1,0 +1,13 @@
+# directories
+.git
+/assets
+/build
+/coverage
+/dist
+/node_modules
+/reports
+
+# specific files
+angular.json
+package.json
+tsconfig*.json

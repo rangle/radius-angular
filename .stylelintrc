@@ -1,0 +1,41 @@
+{
+  "extends": [
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": [
+    "stylelint-suitcss"
+  ],
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "at-rule-no-vendor-prefix": true,
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "comment-whitespace-inside": "always",
+    "declaration-bang-space-after": "never",
+    "declaration-bang-space-before": "always",
+    "declaration-block-no-shorthand-property-overrides": true,
+    "declaration-block-single-line-max-declarations": 2,
+    "function-calc-no-unspaced-operator": true,
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "function-whitespace-after": "always",
+    "function-url-quotes": "always",
+    "max-line-length": [
+      80,
+      {
+        "ignore": "non-comments"
+      }
+    ],
+    "media-feature-colon-space-after": "always",
+    "media-feature-colon-space-before": "never",
+    "media-feature-name-no-vendor-prefix": true,
+    "media-feature-range-operator-space-after": "always",
+    "media-feature-range-operator-space-before": "always",
+    "media-feature-parentheses-space-inside": "never",
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "selector-pseudo-element-colon-notation": "double",
+    "suitcss/root-no-standard-properties": true,
+    "suitcss/selector-root-no-composition": true,
+    "value-no-vendor-prefix": true
+  }
+}

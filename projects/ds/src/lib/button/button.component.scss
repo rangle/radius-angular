@@ -90,7 +90,6 @@
     padding-bottom: var(--ds-space-3);
     padding-left: var(--ds-space-3);
     padding-right: var(--ds-space-3);
-  
 
     svg {
       color: var(--ds-color--text-inverse);
@@ -114,7 +113,7 @@
   &--small {
     font-size: var(--ds-typography-scale-s);
     padding-left: var(--ds-space-5);
-    padding-right: var(--ds-space-5);  
+    padding-right: var(--ds-space-5);
   }
 
   &--medium {
@@ -124,6 +123,6 @@
   &--large {
     font-size: var(--ds-typography-scale-l);
     padding-left: var(--ds-space-9);
-    padding-right: var(--ds-space-9);  
+    padding-right: var(--ds-space-9);
   }
 }
