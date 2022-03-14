@@ -24,7 +24,10 @@ describe('ButtonComponent', () => {
 
   it('should render', () => {
     const fixture = TestBed.createComponent(ButtonComponent);
-    let button = fixture.debugElement.nativeElement.querySelector('ds-button ds-button--primary ds-button--small');
+    const variant = 'primary';
+    const size = 'small';
+    const selector = 'ds-button'
+    let button = fixture.debugElement.nativeElement.querySelector(`${selector} ${selector}--${variant} ${selector}--${size}`);
     fixture.detectChanges();
     expect(button).toBeDefined();
   });
