@@ -25,7 +25,9 @@ describe('ButtonComponent', () => {
 
   it('should render', () => {
     const fixture = TestBed.createComponent(TextComponent);
-    let text = fixture.debugElement.nativeElement.querySelector('label label-3xl');
+    const selector = 'label';
+    const size = '3xl';
+    const text = fixture.debugElement.nativeElement.querySelector(`${selector} ${selector}--${size}`);
     fixture.detectChanges();
     expect(text).toBeDefined();
   })

@@ -24,7 +24,7 @@ describe('TagComponent', () => {
 
   it('should render', () => {
     const fixture = TestBed.createComponent(TagComponent);
-    let tag = fixture.debugElement.nativeElement.querySelector('ds-tag');
+    const tag = fixture.debugElement.nativeElement.querySelector('ds-tag');
     fixture.detectChanges();
     expect(tag).toBeDefined();
   });
