@@ -3,7 +3,7 @@ import { addParameters } from "@storybook/angular";
 import docJson from "../documentation.json";
 setCompodocJson(docJson);
 
-import '!style-loader!css-loader!sass-loader!../projects/demo/src/styles/index.scss';
+import '!style-loader!css-loader!sass-loader!../projects/demo/src/styles/index.css';
 
 const tokenContext = require.context(
   '!!raw-loader!../projects/demo/src/styles',
@@ -11,7 +11,7 @@ const tokenContext = require.context(
   /.\.(css|less|scss|svg)$/
 );
 
-const tokenFiles = tokenContext.keys().map(function (filename) {
+const tokenFiles = tokenContext.keys().map(function(filename) {
   return { filename: filename, content: tokenContext(filename).default };
 });
 

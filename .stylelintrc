@@ -20,7 +20,7 @@
     "function-whitespace-after": "always",
     "function-url-quotes": "always",
     "max-line-length": [
-      80,
+      120,
       {
         "ignore": "non-comments"
       }

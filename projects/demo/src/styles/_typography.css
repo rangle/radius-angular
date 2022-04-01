@@ -1,0 +1,35 @@
+:root {
+  /**
+  * @tokens Font Sizes
+  * @presenter FontSize
+  */
+  --typography-scale-5xl: 3rem;
+  --typography-scale-4xl: 2.5rem;
+  --typography-scale-3xl: 2rem;
+  --typography-scale-2xl: 1.75rem;
+  --typography-scale-xl: 1.5rem;
+  --typography-scale-l: 1.25rem;
+  --typography-scale-m: 1rem;
+  --typography-scale-s: 0.75rem;
+  --typography-scale-xs: 0.625rem;
+  /**
+  * @tokens Font Weights
+  * @presenter FontWeight
+  */
+  --typography-weight-regular: normal;
+  --typography-weight-medium: lighter;
+  --typography-weight-bold: bolder;
+  /**
+  * @tokens Letter Spacings
+  * @presenter LetterSpacing
+  */
+  --typography-letter-spacing-default: normal;
+  --typography-letter-spacing-tracked: 0.25rem;
+  /**
+  * @tokens Line Heights
+  * @presenter LineHeight
+  */
+  --typography-line-height-100: 100%;
+  --typography-line-height-125: 125%;
+  --typography-line-height-150: 150%;
+}
