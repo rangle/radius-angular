@@ -1,44 +1,44 @@
 :host.ds-text {
-  color: var(--colour--text-primary);
+  color: var(--ds-color-text-primary);
   &--l {
-    font-size: var(--typography-scale-l);
-    font-weight: var(--typography-weight-bold);
-    line-height: var(--typography-line-height-125);
+    font-size: var(--ds-font-scale-l);
+    font-weight: var(--ds-font-weight-bold);
+    line-height: var(--ds-line-height-125);
   }
   &--xl {
-    font-size: var(--typography-scale-xl);
-    font-weight: var(--typography-weight-bold);
-    line-height: var(--typography-line-height-125);
+    font-size: var(--ds-font-scale-xl);
+    font-weight: var(--ds-font-weight-bold);
+    line-height: var(--ds-line-height-125);
   }
   &--2xl {
-    font-size: var(--typography-scale-2xl);
-    font-weight: var(--typography-weight-bold);
-    line-height: var(--typography-line-height-125);
+    font-size: var(--ds-font-scale-2xl);
+    font-weight: var(--ds-font-weight-bold);
+    line-height: var(--ds-line-height-125);
   }
   &--3xl {
-    font-size: var(--typography-scale-3xl);
-    font-weight: var(--typography-weight-bold);
-    line-height: var(--typography-line-height-125);
+    font-size: var(--ds-font-scale-3xl);
+    font-weight: var(--ds-font-weight-bold);
+    line-height: var(--ds-line-height-125);
   }
   &--4xl {
-    font-size: var(--typography-scale-4xl);
-    font-weight: var(--typography-weight-bold);
-    line-height: var(--typography-line-height-125);
+    font-size: var(--ds-font-scale-4xl);
+    font-weight: var(--ds-font-weight-bold);
+    line-height: var(--ds-line-height-125);
   }
   &--5xl {
-    font-size: var(--typography-scale-5xl);
-    font-weight: var(--typography-weight-bold);
-    line-height: var(--typography-line-height-125);
+    font-size: var(--ds-font-scale-5xl);
+    font-weight: var(--ds-font-weight-bold);
+    line-height: var(--ds-line-height-125);
   }
   &--m {
-    font-size: var(--typography-scale-m);
-    line-height: var(--typography-line-height-150);
+    font-size: var(--ds-font-scale-m);
+    line-height: var(--ds-line-height-150);
   }
   &--s {
-    font-size: var(--typography-scale-s);
-    line-height: var(--typography-line-height-150);
+    font-size: var(--ds-font-scale-s);
+    line-height: var(--ds-line-height-150);
   }
   &--xs {
-    font-size: var(--typography-scale-xs);
+    font-size: var(--ds-font-scale-xs);
   }
 }

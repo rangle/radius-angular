@@ -7,5 +7,7 @@ body {
   background-color: var(--ds-color--ui-background-1);
 }
 
-/* getComputedStyle(document.documentElement)
-    .getPropertyValue('--fontface--Bitstream'); */
+* {
+  margin: 0;
+  padding: 0;
+}
