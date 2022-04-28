@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Creating NPM Packages
+
+1) Update the path on line 7 in `projects/ds/src/ng-package.json`
+2) Add your main CSS file into `angular.json` under `styles` E.g. line 61
+3) After step 1 and 2 are done, run the following commands in order:
+  `npm run packagr` - this will create a dist folder, in package.json in dist folder change the name and the version of it accordingly
+  `cd dist`
+  `npm pack`
+  `npm login` - you need to have a npm account 
+    If you have an account put your login information
+    if you don't have one, you can create one at <https://www.npmjs.com> for free
+  `npm publish`

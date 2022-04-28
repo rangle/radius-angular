@@ -57,7 +57,8 @@
               "projects/demo/src/assets"
             ],
             "styles": [
-              "projects/demo/src/styles.css"
+              "projects/demo/src/styles.css",
+              "projects/demo/src/styles/index.css"
             ],
             "scripts": []
           },

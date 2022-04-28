@@ -22,9 +22,10 @@
     "test:ds:watch": "jest --config ./projects/ds/jest.config.js --passWithNoTests --watch",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "packagr": "ng-packagr -p ./projects/ds/ng-package.json"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~12.2.16",
     "@angular/common": "~12.2.16",
