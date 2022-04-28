@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Creating NPM Packages
 
-For example npm package for Angular you can take a look at [Radius Angular]<https://www.npmjs.com/package/radius-asparagus>
+For example npm package for Angular you can take a look at [Radius Angular] (https://www.npmjs.com/package/radius-asparagus)
 
 1) Update the path on line 7 in `projects/ds/src/ng-package.json`
 2) Add your main CSS file into `angular.json` under `styles` E.g. line 61
