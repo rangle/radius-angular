@@ -28,15 +28,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Creating NPM Packages
 
-For example npm package for Angular you can take a look at [Radius Angular] (https://www.npmjs.com/package/radius-asparagus)
+* Run the command `npm run build:ds` to build the design system, this will create a dist folder, in package.json in dist folder change the name and the version of it accordingly.
+* Go into dist directory using command `cd dist`.
+* Pack the distribution directory using `npm pack` as an archive to upload.
+* Publish the library using `npm publish`.
 
-1) Update the path on line 7 in `projects/ds/src/ng-package.json`
-2) Add your main CSS file into `angular.json` under `styles` E.g. line 61
-3) After step 1 and 2 are done, run the following commands in order:
-  `npm run packagr` - this will create a dist folder, in package.json in dist folder change the name and the version of it accordingly
-  `cd dist`
-  `npm pack`
-  `npm login` - you need to have a npm account 
-    If you have an account put your login information
-    if you don't have one, you can create one at <https://www.npmjs.com> for free
-  `npm publish`
+> You would have to do `npm login` to publish the library. If you have an account put your login information or, you can create one at <https://www.npmjs.com> for free.
+  

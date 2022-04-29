@@ -3,10 +3,10 @@ import { addParameters } from "@storybook/angular";
 import docJson from "../documentation.json";
 setCompodocJson(docJson);
 
-import '!style-loader!css-loader!sass-loader!../projects/demo/src/styles/index.css';
+import '!style-loader!css-loader!sass-loader!../projects/ds/styles/index.css';
 
 const tokenContext = require.context(
-  '!!raw-loader!../projects/demo/src/styles',
+  '!!raw-loader!../projects/ds/styles',
   true,
   /.\.(css|less|scss|svg)$/
 );
