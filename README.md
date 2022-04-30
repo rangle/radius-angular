@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Creating NPM Packages
+
+* Run the command `npm run build:ds` to build the design system, this will create a dist folder, in package.json in dist folder change the name and the version of it accordingly.
+* Go into dist directory using command `cd dist`.
+* Pack the distribution directory using `npm pack` as an archive to upload.
+* Publish the library using `npm publish`.
+
+> You would have to do `npm login` to publish the library. If you have an account put your login information or, you can create one at <https://www.npmjs.com> for free.
+  
