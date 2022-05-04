@@ -1,0 +1,55 @@
+# runs on pull requests
+trigger: none
+
+# Environment variables
+# variables group can be changed based on project needs
+variables:
+  - group: radius-angular
+  - name: chromaticProjectToken
+    value: $[variables.CHROMATIC_PROJECT_TOKEN]
+
+# triggers on pull requests against the following branches
+pr:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    persistCredentials: true
+    clean: true
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "14.x"
+    displayName: "Install Node"
+
+  - script: npm install
+    displayName: "install dependencies"
+
+  - task: Bash@3
+    displayName: "Lint and Test"
+    inputs:
+      targetType: "inline"
+      script: |
+        npm run lint
+        npm run test
+
+  - task: Bash@3
+    displayName: "Dry run of packaging process"
+    inputs:
+      targetType: "inline"
+      script: |
+        npm run build:ds
+        cd dist/ds
+        npm pack --dry-run
+
+  # Builds that contain visual changes need to be verified via UI Review.
+  # They will fail if you are not using --exit-zero-on-changes.
+  # https://www.chromatic.com/docs/cli
+  - task: CmdLine@2
+    displayName: Publish to Chromatic
+    inputs:
+      # Runs Chromatic
+      script: npx chromatic --project-token=$(chromaticProjectToken) --exit-zero-on-changes

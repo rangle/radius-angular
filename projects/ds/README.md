@@ -1,11 +1,28 @@
-# Ds
+# DS - Radius Angular Design System Starter
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+This starter component library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+
+What's inside:
+
+```
+.
+├── src
+│   ├── docs
+│   │   ├── static
+│   │   │   └── imgs
+│   │   └── tokens
+│   └── lib
+│       ├── button
+│       ├── tag
+│       └── text
+└── styles
+```
 
 ## Code scaffolding
 
 Run `ng generate component component-name --project ds` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ds`.
-> Note: Don't forget to add `--project ds` or else it will be added to the default project in your `angular.json` file. 
+
+> Note: Don't forget to add `--project ds` or else it will be added to the default project in your `angular.json` file.
 
 ## Build
 

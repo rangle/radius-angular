@@ -1,0 +1,106 @@
+# Runs after merge to main
+
+trigger:
+  - main
+
+variables:
+  - group: usrrname-radius-main
+  - name: projectName
+    value: $[variables.PROJECT_NAME]
+  - name: feedName
+    value: $[variables.FEED_NAME]
+  - name: personalAccessToken
+    value: $[variables.PERSONAL_ACCESS_TOKEN]
+  - name: orgName
+    value: $[variables.ORG_NAME]
+  - name: GitHubToken
+    value: $[variables.GH_TOKEN]
+  - name: npmToken
+    value: $[variables.NPM_TOKEN]
+  - name: chromaticProjectToken
+    value: $[variables.CHROMATIC_PROJECT_TOKEN]
+
+jobs:
+  - job: install_build_publish
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      - checkout: self
+        persistCredentials: true. # persist git oauth
+        clean: true # scrap repo and pull what's new
+        fetchDepth: 0 # get the last most recent commit for chromatic to assess benchmark
+
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '14.x'
+        displayName: 'Install Node'
+
+      # clean install requires package-lock.json
+      - task: Bash@3
+        displayName: 'Install, Lint and Test'
+        inputs:
+          targetType: 'inline'
+          script: |
+            npm ci --ignore-scripts
+            npm run lint
+            npm run test
+
+      # generate .npmrc with variables required by npmrc.sh that
+      # are supplied within pipeline variables
+      # referenced by variables group
+      # TODO: make the .npmrc.sh able to generate different registry urls
+      # and scopes depending on desired publish destination
+      - task: Bash@3
+        displayName: 'Generate .npmrc'
+        env:
+          PERSONAL_ACCESS_TOKEN: $(personalAccessToken)
+          FEED_NAME: $(feedName)
+          ORG_NAME: $(orgName)
+          NPM_TOKEN: $(npmToken)
+        inputs:
+          targetType: 'inline'
+          script: |
+            chmod +x ./npmrc.sh
+            ./npmrc.sh
+
+      - task: npmAuthenticate@0
+        displayName: 'Authenticate with npm'
+        inputs:
+          workingFile: .npmrc
+          customEndpoint: azureSubscription
+
+      # Updates package version with npm but doesn't create git tag
+      - task: Bash@3
+        displayName: 'Update version of package'
+        inputs:
+          targetType: 'inline'
+          script: |
+            cd $(Build.SourcesDirectory)/projects/ds
+            npm --no-git-tag-version version patch --force -m "Upgrade package to %s"
+
+      # npm pack should be run from the folder where the package.json for the exported lib is
+      - task: Bash@3
+        displayName: 'Build, pack and version design system'
+        inputs:
+          targetType: 'inline'
+          script: |
+            npm run build:ds
+            cd dist/ds
+            npm pack
+
+      - task: Npm@1
+        displayName: 'Publish to Azure Devops org artifact registry'
+        inputs:
+          command: publish
+          publishRegistry: useFeed
+          publishFeed: $(projectName)/$(feedName)
+          workingDir: dist/ds
+        continueOnError: true
+
+      # --auto-accept-changes assumes any unapproved changes will not be flagged as 
+      # regressions when they are merged to main
+      - task: CmdLine@2
+        displayName: Publish to Chromatic
+        inputs:
+          # Runs Chromatic and accepts changes coming from approved PR
+          script: npx chromatic --project-token=$(chromaticProjectToken) --auto-accept-changes
