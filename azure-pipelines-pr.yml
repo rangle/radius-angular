@@ -1,0 +1,38 @@
+# runs on pull requests
+trigger: none
+
+# Environment variables
+variables:
+  - group: radius-angular
+
+# triggers on pull requests against the following branches
+pr:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "14.x"
+    displayName: "Install Node"
+  - task: Cache@2
+    displayName: "Install and cache packages"
+    inputs:
+      key: 'npm | "$(Agent.OS)" | package-lock.json'
+      restoreKeys: |
+        npm | "$(Agent.OS)"
+      path: $(npm_config_cache)
+  - script: npm ci
+    condition: ne(variables.CACHE_RESTORED, 'true')
+    displayName: "cache exists; Node clean install"
+  - script: |
+      npm run lint
+      npm run test
+    displayName: "lint and test"
+  - task: CmdLine@2
+    displayName: Publish to Chromatic
+    inputs:
+      # Runs Chromatic
+      script: npx chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
