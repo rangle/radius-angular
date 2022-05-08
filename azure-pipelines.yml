@@ -5,6 +5,14 @@ trigger:
 
 variables:
   - group: radius-angular
+  - name: projectName
+    value: $[variables.PROJECT_NAME]
+  - name: feedName
+    value: $[variables.FEED_NAME]
+  - name: personalAccessToken
+    value: $[variables.PERSONAL_ACCESS_TOKEN]
+  - name: orgName
+    value: $[variables.ORG_NAME]
 
 jobs:
   - job: setup_build_publish
@@ -25,8 +33,36 @@ jobs:
           displayName: "Copy scripts"
           inputs:
             sourceFolder: "$(Build.SourcesDirectory)/dist/**"
-            targetFolder: "$(Build.ArtifactStagingDirectory)"
+            targetFolder: "$(Build.ArtifactStagingDirectory)/dist"
         - task: PublishBuildArtifacts@1
+          displayName: "Publish build artifacts"
           inputs:
-            pathToPublish: "$(Build.ArtifactStagingDirectory)"
+            pathToPublish: "$(Build.ArtifactStagingDirectory)/dist"
             artifactName: dist
+
+    # Publish Universal Package
+  - job: publish_universal
+    steps:
+      - task: UniversalPackages@0
+        displayName: "Universal package publishing"
+        inputs:
+          command: publish
+          publishDirectory: dist
+          vstsFeedPublish: "$(projectName)/$(feedName)"
+          vstsFeedPackage: "radius-angular"
+          vstsPackageVersion: "0.0.1"
+  - job: publish_npm
+    steps:
+      - bash: echo $(Build.QueuedById) $(orgName)
+        env:
+          BUILD_QUEUEDBYID: $(Build.QueuedById)
+          BUILD_REQUESTEDFOREMAIL: $(Build.RequestedForEmail)
+          script:
+            $ORG_NAME=$(orgName) $BUILD_QUEUEDBYID=$(Build.QueuedById) $BUILD_REQUESTEDFOREMAIL=$(Build.RequestedForEmail) $PROJECT_NAME=$(projectName) $FEED_NAME=$(feedName) $PERSONAL_ACCESS_TOKEN=$(personalAccessToken) $ORG_NAME=$(System.CollectionId) chmod +x ./npmrc.sh
+            vsts-npm-auth -config .npmrc
+      - task: Npm@1
+        displayName: "Publish to npm"
+        inputs:
+          command: publish
+          publishRegistry: useExternalRegistry
+          publishEndpoint: "azureSubscription"

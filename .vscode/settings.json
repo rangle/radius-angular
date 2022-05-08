@@ -1,0 +1,9 @@
+{
+  "yaml.schemas": {
+    "file:///Users/jenc/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+    "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json": [
+      "file:///Users/jenc/radius-angular/azure-pipelines-pr.yml",
+      "file:///Users/jenc/radius-angular/azure-pipelines.yml"
+    ]
+  }
+}
