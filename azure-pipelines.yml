@@ -24,8 +24,9 @@ jobs:
         - task: CopyFiles@2
           displayName: "Copy scripts"
           inputs:
-            contents: "./dist/**"
+            sourceFolder: "$(Build.SourcesDirectory)/dist/**"
             targetFolder: "$(Build.ArtifactStagingDirectory)"
-        - publish: "$(Build.ArtifactStagingDirectory)/dist"
-          displayName: "Publish DS"
-          artifact: drop
+        - task: PublishBuildArtifacts@1
+          inputs:
+            pathToPublish: "$(Build.ArtifactStagingDirectory)"
+            artifactName: dist
