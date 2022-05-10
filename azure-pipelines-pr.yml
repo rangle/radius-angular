@@ -4,7 +4,8 @@ trigger: none
 # Environment variables
 variables:
   - group: radius-angular
-
+  - name: CHROMATIC_PROJECT_TOKEN
+    value: $[variables.CHROMATIC_PROJECT_TOKEN]
 # triggers on pull requests against the following branches
 pr:
   - main

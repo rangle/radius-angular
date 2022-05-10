@@ -1,6 +1,7 @@
 
 #!/usr/bin/env bash
-echo "registry=https://pkgs.dev.azure.com/${ORG_NAME}/_packaging/${FEED_NAME}/npm/registry/
+echo "registry=https://pkgs.dev.azure.com/jennifer7chan/_packaging/radius-angular/npm/registry/ 
+//registry.npmjs.org/:_authToken=${NPM_TOKEN}
 always-auth=true
 ; begin auth token
 //pkgs.dev.azure.com/${ORG_NAME}/_packaging/Feed/npm/registry/:username=${BUILD_QUEUEDBYID}

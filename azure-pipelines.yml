@@ -2,6 +2,7 @@
 
 trigger:
   - main
+  - feature/R20-22-azure-pipelines
 
 variables:
   - group: radius-angular
@@ -20,6 +21,7 @@ jobs:
       vmImage: ubuntu-latest
       steps:
         - task: NodeTool@0
+          displayName: "Install lint, test, build DS"
           inputs:
             versionSpec: "14.x"
             displayName: "Install Node.js"
@@ -28,38 +30,52 @@ jobs:
               npm run lint
               npm run test
               npm run build:ds
-          displayName: "Install lint, test, build DS"
         - task: CopyFiles@2
-          displayName: "Copy scripts"
+          displayName: "Copy dist"
           inputs:
-            sourceFolder: "$(Build.SourcesDirectory)/dist/**"
-            targetFolder: "$(Build.ArtifactStagingDirectory)/dist"
+            contents: "dist/**"
+            targetFolder: "$(Build.ArtifactStagingDirectory)"
+
+        - publish: "$(Build.ArtifactStagingDirectory)/dist"
+          displayName: "Publish dist"
+          artifact: dist
         - task: PublishBuildArtifacts@1
           displayName: "Publish build artifacts"
           inputs:
-            pathToPublish: "$(Build.ArtifactStagingDirectory)/dist"
+            pathToPublish: "$(Build.ArtifactStagingDirectory)"
             artifactName: dist
 
     # Publish Universal Package
   - job: publish_universal
+    dependsOn: setup_build_publish
+    pool:
+      vmImage: "ubuntu-latest"
     steps:
       - task: UniversalPackages@0
         displayName: "Universal package publishing"
         inputs:
           command: publish
-          publishDirectory: dist
+          publishDirectory: "$(Pipeline.Workspace)/dist"
           vstsFeedPublish: "$(projectName)/$(feedName)"
           vstsFeedPackage: "radius-angular"
           vstsPackageVersion: "0.0.1"
+
   - job: publish_npm
+    dependsOn: setup_build_publish
     steps:
       - bash: echo $(Build.QueuedById) $(orgName)
         env:
           BUILD_QUEUEDBYID: $(Build.QueuedById)
           BUILD_REQUESTEDFOREMAIL: $(Build.RequestedForEmail)
+          ORG_NAME: $(orgName)
+          NPM_TOKEN: $[variables.NPM_TOKEN]
+          projectName: $(System.TeamProject)
           script:
-            $ORG_NAME=$(orgName) $BUILD_QUEUEDBYID=$(Build.QueuedById) $BUILD_REQUESTEDFOREMAIL=$(Build.RequestedForEmail) $PROJECT_NAME=$(projectName) $FEED_NAME=$(feedName) $PERSONAL_ACCESS_TOKEN=$(personalAccessToken) $ORG_NAME=$(System.CollectionId) chmod +x ./npmrc.sh
-            vsts-npm-auth -config .npmrc
+            ORG_NAME=$(orgName) BUILD_QUEUEDBYID=$(Build.QueuedById) BUILD_REQUESTEDFOREMAIL=$(Build.RequestedForEmail) PROJECT_NAME=$(projectName) FEED_NAME=$(feedName) PERSONAL_ACCESS_TOKEN=$(personalAccessToken) ORG_NAME=$(System.CollectionId) chmod +x ./npmrc.sh
+            cat .npmrc
+      - publish: "$(Build.ArtifactStagingDirectory)"
+        displayName: "Publish .npmrc"
+        artifact: .npmrc
       - task: Npm@1
         displayName: "Publish to npm"
         inputs:
