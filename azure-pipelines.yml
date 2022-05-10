@@ -14,71 +14,41 @@ variables:
     value: $[variables.PERSONAL_ACCESS_TOKEN]
   - name: orgName
     value: $[variables.ORG_NAME]
+  - name: GitHubToken
+    value: $[variables.GH_TOKEN]
+  - name: npm_config_cache
+    value: $(Pipeline.Workspace)/.npm
 
 jobs:
-  - job: setup_build_publish
+  - job: install
     pool:
       vmImage: ubuntu-latest
       steps:
+        - checkout: self
+          persistCredentials: true
+
         - task: NodeTool@0
-          displayName: "Install lint, test, build DS"
           inputs:
             versionSpec: "14.x"
-            displayName: "Install Node.js"
-            script: |
-              npm ci
-              npm run lint
-              npm run test
-              npm run build:ds
-        - task: CopyFiles@2
-          displayName: "Copy dist"
+          displayName: "Install Node"
+        - task: Cache@2
+          displayName: "Cache npm packages"
           inputs:
-            contents: "dist/**"
-            targetFolder: "$(Build.ArtifactStagingDirectory)"
-
+            key: 'npm | "$(Agent.OS)" | package-lock.json'
+            restoreKeys: |
+              npm | "$(Agent.OS)"
+            path: $(npm_config_cache)
+        - script: npm ci
+          displayName: "cache exists; Node clean install"
+          condition: ne(variables.CACHE_RESTORED, 'true')
+        - script: npm run lint
+          displayName: "Lint"
+        - script: npm run test
+          displayName: "Test"
+        - script: npm run build:ds
+          displayName: "Build design system package"
+        - script: npm pack
+          displayName: "Package for npm release"
         - publish: "$(Build.ArtifactStagingDirectory)/dist"
-          displayName: "Publish dist"
+          displayName: "Publish to Artifact Staging Dir"
           artifact: dist
-        - task: PublishBuildArtifacts@1
-          displayName: "Publish build artifacts"
-          inputs:
-            pathToPublish: "$(Build.ArtifactStagingDirectory)"
-            artifactName: dist
-
-    # Publish Universal Package
-  - job: publish_universal
-    dependsOn: setup_build_publish
-    pool:
-      vmImage: "ubuntu-latest"
-    steps:
-      - task: UniversalPackages@0
-        displayName: "Universal package publishing"
-        inputs:
-          command: publish
-          publishDirectory: "$(Pipeline.Workspace)/dist"
-          vstsFeedPublish: "$(projectName)/$(feedName)"
-          vstsFeedPackage: "radius-angular"
-          vstsPackageVersion: "0.0.1"
-
-  - job: publish_npm
-    dependsOn: setup_build_publish
-    steps:
-      - bash: echo $(Build.QueuedById) $(orgName)
-        env:
-          BUILD_QUEUEDBYID: $(Build.QueuedById)
-          BUILD_REQUESTEDFOREMAIL: $(Build.RequestedForEmail)
-          ORG_NAME: $(orgName)
-          NPM_TOKEN: $[variables.NPM_TOKEN]
-          projectName: $(System.TeamProject)
-          script:
-            ORG_NAME=$(orgName) BUILD_QUEUEDBYID=$(Build.QueuedById) BUILD_REQUESTEDFOREMAIL=$(Build.RequestedForEmail) PROJECT_NAME=$(projectName) FEED_NAME=$(feedName) PERSONAL_ACCESS_TOKEN=$(personalAccessToken) ORG_NAME=$(System.CollectionId) chmod +x ./npmrc.sh
-            cat .npmrc
-      - publish: "$(Build.ArtifactStagingDirectory)"
-        displayName: "Publish .npmrc"
-        artifact: .npmrc
-      - task: Npm@1
-        displayName: "Publish to npm"
-        inputs:
-          command: publish
-          publishRegistry: useExternalRegistry
-          publishEndpoint: "azureSubscription"

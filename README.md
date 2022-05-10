@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
 
+[![Build Status](https://dev.azure.com/radius2/radius-azure/_apis/build/status/usrrname.radius-angular?branchName=refs%2Fpull%2F2%2Fmerge)](https://dev.azure.com/radius2/radius-azure/_build/latest?definitionId=1&branchName=refs%2Fpull%2F2%2Fmerge)
+
 # About
 
 This is 1 of 3 repositories that facilitates the generation of design system instances.
