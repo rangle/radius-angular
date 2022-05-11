@@ -31,6 +31,7 @@ jobs:
           inputs:
             versionSpec: "14.x"
           displayName: "Install Node"
+
         - task: Cache@2
           displayName: "Cache npm packages"
           inputs:
@@ -38,17 +39,44 @@ jobs:
             restoreKeys: |
               npm | "$(Agent.OS)"
             path: $(npm_config_cache)
+
         - script: npm ci
           displayName: "cache exists; Node clean install"
           condition: ne(variables.CACHE_RESTORED, 'true')
+
         - script: npm run lint
           displayName: "Lint"
-        - script: npm run test
+
+        - script: npm run test:ds --collect-coverage
           displayName: "Test"
+
+        - task: CopyFiles@2
+          displayName: "Copy npm package"
+          inputs:
+            sourceFolder: "$(Build.SourcesDirectory)"
+            contents: "coverage/**"
+            targetFolder: $(Build.ArtifactStagingDirectory)/coverage
+
         - script: npm run build:ds
           displayName: "Build design system package"
-        - script: npm pack
+
+        - script: cd dist && npm pack
           displayName: "Package for npm release"
-        - publish: "$(Build.ArtifactStagingDirectory)/dist"
+
+        - task: CopyFiles@2
+          displayName: "Copy npm package"
+          inputs:
+            sourceFolder: "$(Build.SourcesDirectory)"
+            contents: "*.tgz"
+            targetFolder: $(Build.ArtifactStagingDirectory)/npm
+
+        - task: CopyFiles@2
+          displayName: "Copy package.json"
+          inputs:
+            sourceFolder: "$(Build.SourcesDirectory)"
+            contents: "package.json"
+            targetFolder: $(Build.ArtifactStagingDirectory)/npm
+
+        - publish: "$(Build.ArtifactStagingDirectory)/npm"
           displayName: "Publish to Artifact Staging Dir"
-          artifact: dist
+          artifact: "*.tgz"
