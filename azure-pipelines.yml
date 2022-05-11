@@ -2,7 +2,6 @@
 
 trigger:
   - main
-  - feature/R20-22-azure-pipelines
 
 variables:
   - group: radius-angular
@@ -39,8 +38,16 @@ jobs:
             restoreKeys: |
               npm | "$(Agent.OS)"
             path: $(npm_config_cache)
-
-        - script: npm ci
+        - script: |
+            npm cache ls
+            npm cache verify
+          displayName: Show cache
+  - job: build
+    pool:
+      vmImage: ubuntu-latest
+      dependsOn: install
+      steps:
+        - script: npm ci --cache $(npm_config_cache)
           displayName: "cache exists; Node clean install"
           condition: ne(variables.CACHE_RESTORED, 'true')
 
