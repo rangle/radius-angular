@@ -87,3 +87,10 @@ jobs:
         - publish: "$(Build.ArtifactStagingDirectory)/npm"
           displayName: "Publish to Artifact Staging Dir"
           artifact: "*.tgz"
+
+        - task: Bash@3
+          displayName: "Generate .npmrc"
+          inputs:
+            script:
+              $ORG_NAME=$(orgName) $FEED_NAME=$(feedName) $PERSONAL_ACCESS_TOKEN=$(personalAccessToken) chmod +x ./npmrc.sh
+              ./npmrc.sh
